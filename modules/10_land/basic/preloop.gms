@@ -1,0 +1,1 @@
+p10_luh_init(fpu, impact_land_categories) = sum(impact_to_luh(impact_land_categories,land_class), luh_init(fpu, land_class));

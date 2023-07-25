@@ -1,2 +1,4 @@
-*.lst
 InputData/
+*.lst
+*.gsp
+*.ref
