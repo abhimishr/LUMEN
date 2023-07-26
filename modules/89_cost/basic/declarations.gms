@@ -15,11 +15,11 @@ q89_cost_glo        Global level LU cost (000 USD)
 q89_cost_fpu(fpu)   Fpu level cost (000 USD)
 ;
 
-########### Begin R section ###########
+*########### Begin R section ###########
 parameters
 ov_cost_glo(t, type)        Global level LU cost (000 USD)
 ov89_cost_fpu(t, fpu, type)  Fpu level cost (000 USD)
 oq89_cost_glo(t, type)       Global level LU cost (000 USD)
 oq89_cost_fpu(t, fpu, type)  Fpu level cost (000 USD)
 ;
-########### End R section   ###########
+*########### End R section   ###########
