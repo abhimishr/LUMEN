@@ -6,13 +6,25 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 parameters
-p10_luh_init(fpu, impact_land_categories) Land use initialization dataset
+p10_luh_init(fpu, land_class_agg)   Land use initialization dataset (000 ha)
+p10_land_cost(fpu, land_class_agg)  Cost of land use (USD per ha)
 ;
 
 positive variables
-vm_land(fpu, impact_land_categories) Land use variable
+vm_land(fpu, land_class_agg)        Land use variable (000 ha)
+v10_land_cost(fpu)                  Cost of land use (000 USD)
 ;
 
 equations
-q10_land(fpu, impact_land_categories) Equation for land use
+q10_land(fpu)                       Equation for land use (000 ha)
+q10_land_cost(fpu)                  Cost of land use (USD per ha)
 ;
+
+########### Begin R section ###########
+parameters
+ov_land(t, fpu,(, type)land_class_agg)        Land use variable (000 ha)
+ov10_land_cost(t, fpu, type)                 Cost of land use (000 USD)
+oq10_land(t, fpu, type)                      Equation for land use (000 ha)
+oq10_land_cost(t, fpu, type)                 Cost of land use (USD per ha)
+;
+########### End R section   ###########

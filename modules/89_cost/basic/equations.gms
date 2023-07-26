@@ -4,3 +4,15 @@
 *** |  AGPL-3.0, you are granted additional permissions described in the
 *** |  License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
+
+q89_cost_glo ..
+                    vm_cost_glo
+                    =e=
+                    sum(fpu2, v89_cost_fpu(fpu2))
+                    ;
+
+q89_cost_fpu(fpu2) ..
+                    v89_cost_fpu(fpu2)
+                    =e=
+                    v10_land_cost(fpu2)
+                    ;

@@ -12,7 +12,7 @@
 $Ifi "%phase%" == "sets" $include "./modules/10_land/basic/sets.gms"
 $Ifi "%phase%" == "declarations" $include "./modules/10_land/basic/declarations.gms"
 $Ifi "%phase%" == "input" $include "./modules/10_land/basic/input.gms"
-*$Ifi "%phase%" == "equations" $include "./modules/10_land/basic/equations.gms"
+$Ifi "%phase%" == "equations" $include "./modules/10_land/basic/equations.gms"
 *$Ifi "%phase%" == "scaling" $include "./modules/10_land/basic/scaling.gms"
 *$Ifi "%phase%" == "start" $include "./modules/10_land/basic/start.gms"
 $Ifi "%phase%" == "preloop" $include "./modules/10_land/basic/preloop.gms"

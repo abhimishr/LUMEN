@@ -34,7 +34,7 @@ $batinclude "./modules/include.gms" equations
 ********************************************************************************
 
 *******************MODEL DEFINITION & SOLVER OPTIONS****************************
-*model xx / all /;
+model LUMEN / all /;
 
 option iterlim    = 1000000 ;
 option reslim     = 1000000 ;

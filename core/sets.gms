@@ -46,3 +46,23 @@ fpu
         ZAM_NAM, ZAM_TZA, ZAM_ZMB, ZAM_ZWE, ZHJ_CHM
         /
 ;
+
+sets
+        fpu2(fpu) Fpus dynamic
+;
+
+* Initialize dynamic sets
+fpu2(fpu) = yes;
+
+*#### Time sets
+sets 
+        time_annual
+                / 2000 * 2005 /
+        t(time_annual)
+                / 2000 * 2002 /
+;
+
+set  ct(t) Current time period;
+set pt(t) Previous time period;
+
+alias(t,t2);

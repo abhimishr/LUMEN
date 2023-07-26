@@ -17,12 +17,12 @@ sets
         nonforest, agric
         /
 
-    impact_land_categories(land_class) Subset of land_class
+    land_class_agg(land_class) Subset of land_class
         /
         primf, secdf, nonforest, urban, agric, pastr, range
         /
 
-    impact_to_luh(impact_land_categories, land_class)
+    land_agg_map(land_class_agg, land_class)
         /
         primf . (primf)
         secdf . (secdf)

@@ -4,4 +4,3 @@
 *** |  AGPL-3.0, you are granted additional permissions described in the
 *** |  License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
-

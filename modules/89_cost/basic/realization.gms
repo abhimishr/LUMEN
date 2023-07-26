@@ -12,7 +12,7 @@
 $Ifi "%phase%" == "sets" $include "./modules/89_cost/basic/sets.gms"
 $Ifi "%phase%" == "declarations" $include "./modules/89_cost/basic/declarations.gms"
 $Ifi "%phase%" == "input" $include "./modules/89_cost/basic/input.gms"
-*$Ifi "%phase%" == "equations" $include "./modules/89_cost/basic/equations.gms"
+$Ifi "%phase%" == "equations" $include "./modules/89_cost/basic/equations.gms"
 *$Ifi "%phase%" == "scaling" $include "./modules/89_cost/basic/scaling.gms"
 *$Ifi "%phase%" == "start" $include "./modules/89_cost/basic/start.gms"
 $Ifi "%phase%" == "preloop" $include "./modules/89_cost/basic/preloop.gms"
