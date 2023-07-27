@@ -6,9 +6,10 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 *************************** Begin Module Settings ******************************
-$setglobal land             basic
-$setglobal cost             basic
-$setglobal optimization     nlp
+$setglobal land                 basic
+$setglobal land_conversion      basic
+$setglobal cost                 basic
+$setglobal optimization         nlp
 *************************** End Module Settings ********************************
 
 ***************************PREDEFINED MACROS************************************

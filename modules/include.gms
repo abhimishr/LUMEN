@@ -9,6 +9,7 @@ $setglobal phase %1
 $onrecurse
 * ########################################################################
 $include "./modules/10_land/module.gms"
+$include "./modules/11_land_conversion/module.gms"
 $include "./modules/89_cost/module.gms"
 $include "./modules/99_optimization/module.gms"
 * ########################################################################

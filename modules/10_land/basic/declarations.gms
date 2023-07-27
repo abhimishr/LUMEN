@@ -8,7 +8,7 @@
 parameters
 p10_luh_init(fpu, land_class_agg)   Land use initialization dataset (000 ha)
 p10_land_cost(fpu, land_class_agg)  Cost of land use (USD per ha)
-pm_land(fpu, land_class_agg)        Land use from previous year (000 ha)
+pcm_land(fpu, land_class_agg)        Land use from previous year (000 ha)
 ;
 
 positive variables
@@ -24,9 +24,10 @@ q10_cropland(fpu)                   Equation for cropland use (000 ha)
 
 *########### Begin R section ###########
 parameters
-ov_land(t, fpu, land_class_agg, type)       Land use variable (000 ha)
+ov_land(t, fpu, land_class_agg, type)        Land use variable (000 ha)
 ov10_land_cost(t, fpu, type)                 Cost of land use (000 USD)
 oq10_land(t, fpu, type)                      Equation for land use (000 ha)
 oq10_land_cost(t, fpu, type)                 Cost of land use (USD per ha)
+oq10_cropland(t, fpu, type)                  Equation for cropland use (000 ha)
 ;
 *########### End R section   ###########

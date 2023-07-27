@@ -32,5 +32,7 @@ sets
         pastr . (pastr)
         range . (range)
         /
-
 ;
+
+alias(land_class_agg,land_from);
+alias(land_class_agg,land_to);
