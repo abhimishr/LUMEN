@@ -4,3 +4,4 @@ InputData/
 *.ref
 modules/*/input/
 *gdx
+restart*.g*
