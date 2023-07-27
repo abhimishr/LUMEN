@@ -5,6 +5,9 @@
 *** |  License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
+*** Land Patterns are transferred to next timestep
+pm_land(fpu, land_class_agg) = vm_land.l(fpu, land_class_agg);
+
 *########### Begin R section ###########
 ov_land(t, fpu, land_class_agg, "marginal")      = vm_land.m(fpu, land_class_agg);
 ov10_land_cost(t, fpu, "marginal")               = v10_land_cost.m(fpu);

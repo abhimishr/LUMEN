@@ -6,4 +6,3 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 *****************************Technical macros***********************************
-
