@@ -10,13 +10,13 @@ p11_conversion_cost(fpu, land_avl_conversion)       Additional costs for lu tran
 ;
 
 positive variables
-vm_landexpansion(fpu, land_class_agg)               Land expansion (mio. ha)
-vm_landreduction(fpu, land_class_agg)               Land reduction (mio. ha)
+v11_landexpansion(fpu, land_class_agg)               Land expansion (mio. ha)
+v11_landreduction(fpu, land_class_agg)               Land reduction (mio. ha)
 vm_cost_land_transition(fpu)                        Costs for lu transitions (mio. USD05MER per yr)
-vm_lu_transitions(fpu, land_from,land_to)           Land transitions between time steps (mio. ha)
+v11_lu_transitions(fpu, land_from,land_to)           Land transitions between time steps (mio. ha)
 v11_balance_positive(fpu)                           Balance variable for land transitions (mio. ha)
 v11_balance_negative(fpu)                           Balance variable for land transitions (mio. ha)
-vm_landreduction_cost(fpu, land_avl_conversion)     Additional costs for lu transitions (000 USD per yr)
+v11_landreduction_cost(fpu, land_avl_conversion)     Additional costs for lu transitions (000 USD per yr)
 ;
 
 equations

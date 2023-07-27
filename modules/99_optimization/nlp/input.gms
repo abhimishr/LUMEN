@@ -5,6 +5,6 @@
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-$setglobal c80_solver  conopt4
+$setglobal c99_solver  conopt4
 *   options:   (conopt3):         conopt3
 *              (conopt4):         conopt4

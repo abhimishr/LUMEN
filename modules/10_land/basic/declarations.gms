@@ -13,7 +13,7 @@ pcm_land(fpu, land_class_agg)        Land use from previous year (000 ha)
 
 positive variables
 vm_land(fpu, land_class_agg)        Land use variable (000 ha)
-v10_land_cost(fpu)                  Cost of land use (000 USD)
+vm_land_cost(fpu)                  Cost of land use (000 USD)
 ;
 
 equations

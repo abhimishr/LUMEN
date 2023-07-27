@@ -5,12 +5,12 @@
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-$ifthen "%c80_solver%" == "conopt3"
+$ifthen "%c99_solver%" == "conopt3"
   option nlp        = conopt ;
-$elseif "%c80_solver%" == "conopt4"
+$elseif "%c99_solver%" == "conopt4"
   option nlp        = conopt4;
 $else
-  abort "c80_solver setting not supported in nlp realization!";
+  abort "c99_solver setting not supported in nlp realization!";
 $endif
 
 solve LUMEN USING nlp MINIMIZING vm_cost_glo;

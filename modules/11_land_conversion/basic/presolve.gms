@@ -6,13 +6,13 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 *' Conversions within natveg are not allowed
-vm_lu_transitions.fx(fpu,"primf","nonforest")   = 0;
-vm_lu_transitions.fx(fpu,"secdf","nonforest")   = 0;
+v11_lu_transitions.fx(fpu,"primf","nonforest")   = 0;
+v11_lu_transitions.fx(fpu,"secdf","nonforest")   = 0;
 
 *' primf can only decrease
-vm_lu_transitions.fx(fpu,land_from,"primf")     = 0;
-vm_lu_transitions.up(fpu,"primf","primf")       = Inf;
+v11_lu_transitions.fx(fpu,land_from,"primf")     = 0;
+v11_lu_transitions.up(fpu,"primf","primf")       = Inf;
 
 *' urban cannot decrease can only decrease
-vm_lu_transitions.fx(fpu,"urban",land_to)       = 0;
-vm_lu_transitions.up(fpu,"urban","urban")       = Inf;
+v11_lu_transitions.fx(fpu,"urban",land_to)       = 0;
+v11_lu_transitions.up(fpu,"urban","urban")       = Inf;

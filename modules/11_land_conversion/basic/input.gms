@@ -6,5 +6,5 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 scalars
-  s10_cost_balance Artificial cost for balance variable (USD05MER per ha) / 1e+04 /
+  s11_cost_balance Artificial cost for balance variable (USD05MER per ha) / 1e+04 /
 ;

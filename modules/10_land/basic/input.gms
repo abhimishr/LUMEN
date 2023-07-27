@@ -10,3 +10,11 @@ $ondelim
 $include "./modules/10_land/input/luh_init.cs3"
 $offdelim
 ;  
+
+parameter yield(fpu, activity, irr) Parameter for yield (t per ha)
+/
+$ondelim
+$include "./modules/10_land/input/yld00.cs4"
+$offdelim
+/
+;

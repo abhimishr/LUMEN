@@ -14,7 +14,7 @@ q89_cost_glo ..
 q89_cost_fpu(fpu2) ..
                     v89_cost_fpu(fpu2)
                     =e=
-                    v10_land_cost(fpu2)
+                    vm_land_cost(fpu2)
                     +
                     vm_cost_land_transition(fpu2)
                     ;

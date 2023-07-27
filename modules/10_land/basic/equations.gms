@@ -18,7 +18,7 @@ q10_cropland(fpu2) ..
                 ; 
 
 q10_land_cost(fpu2) ..
-                v10_land_cost(fpu2)
+                vm_land_cost(fpu2)
                 =e=
                 sum(land_class_agg, vm_land(fpu2, land_class_agg) * p10_land_cost(fpu2, land_class_agg))
                 ;
