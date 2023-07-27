@@ -9,6 +9,8 @@
 
 *' @limitations 
 
-$Ifi "%phase%" == "declarations" $include "./modules/99_optimization/nlp/declarations.gms"
-$Ifi "%phase%" == "input" $include "./modules/99_optimization/nlp/input.gms"
-$Ifi "%phase%" == "solve" $include "./modules/99_optimization/nlp/solve.gms"
+*########### Begin R section ###########
+$Ifi "%phase%" ==  "declarations" $include "./modules/99_optimization/nlp/declarations.gms"
+$Ifi "%phase%" ==  "input" $include "./modules/99_optimization/nlp/input.gms"
+$Ifi "%phase%" ==  "solve" $include "./modules/99_optimization/nlp/solve.gms"
+*########### End R section   ###########
