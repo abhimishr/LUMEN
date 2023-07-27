@@ -21,7 +21,6 @@ $batinclude "./modules/include.gms" sets
 ********************************************************************************
 
 **********INTRODUCE CALCULATION PARAMETERS, VARIABLES AND EQUATIONS*************
-*$include "./core/declarations.gms"
 $batinclude "./modules/include.gms" declarations
 ********************************************************************************
 
