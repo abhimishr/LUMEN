@@ -5,8 +5,15 @@
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-table luh_init(fpu,land_class) Initial LUH Area (000 ha)
-$ondelim
-$include "./modules/10_land/input/luh_init.cs3"
-$offdelim
-;
+q21_cropland(fpu2) ..
+                    sum((activity_crop,irr), vm_area(fpu2,activity_crop,irr)) 
+                    =e= 
+                    vm_land(fpu2,"agric")
+                    ;
+
+
+q21_cropland_change(fpu2) ..
+                    vm_land(fpu2, "agric")
+                    =e=
+                    pcm_land(fpu2, "agric") * 1.05
+                    ; 

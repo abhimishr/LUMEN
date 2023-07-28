@@ -19,15 +19,13 @@ vm_land_cost(fpu)                  Cost of land use (000 USD)
 equations
 q10_land(fpu)                       Equation for land use (000 ha)
 q10_land_cost(fpu)                  Cost of land use (USD per ha)
-q10_cropland(fpu)                   Equation for cropland use (000 ha)
 ;
 
 *########### Begin R section ###########
 parameters
-ov_land(t, fpu, land_class_agg, type)        Land use variable (000 ha)
-ov10_land_cost(t, fpu, type)                 Cost of land use (000 USD)
+ov_land(t, fpu, land_class_agg, type)       Land use variable (000 ha)
+ov_land_cost(t, fpu, type)                 Cost of land use (000 USD)
 oq10_land(t, fpu, type)                      Equation for land use (000 ha)
 oq10_land_cost(t, fpu, type)                 Cost of land use (USD per ha)
-oq10_cropland(t, fpu, type)                  Equation for cropland use (000 ha)
 ;
 *########### End R section   ###########

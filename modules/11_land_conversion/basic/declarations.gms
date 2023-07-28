@@ -31,13 +31,13 @@ q11_cost_reduction(fpu, land_avl_conversion)    Additional costs for lu transiti
 
 *########### Begin R section ###########
 parameters
-ov_landexpansion(t, fpu, land_class_agg, type)              Land expansion (mio. ha)
-ov_landreduction(t, fpu, land_class_agg, type)              Land reduction (mio. ha)
+ov11_landexpansion(t, fpu, land_class_agg, type)              Land expansion (mio. ha)
+ov11_landreduction(t, fpu, land_class_agg, type)              Land reduction (mio. ha)
 ov_cost_land_transition(t, fpu, type)                       Costs for lu transitions (mio. USD05MER per yr)
-ov_lu_transitions(t, fpu, land_from,land_to, type)          Land transitions between time steps (mio. ha)
+ov11_lu_transitions(t, fpu, land_from,land_to, type)          Land transitions between time steps (mio. ha)
 ov11_balance_positive(t, fpu, type)                          Balance variable for land transitions (mio. ha)
 ov11_balance_negative(t, fpu, type)                          Balance variable for land transitions (mio. ha)
-ov_landreduction_cost(t, fpu, land_avl_conversion, type)    Additional costs for lu transitions (000 USD per yr)
+ov11_landreduction_cost(t, fpu, land_avl_conversion, type)    Additional costs for lu transitions (000 USD per yr)
 oq11_transition_matrix(t, fpu, type)                     Land transition constraint cell area (000 ha)
 oq11_transition_to(t, fpu,land_to, type)                 Land transition constraint to (000 ha)
 oq11_transition_from(t, fpu,land_from, type)             Land transition constraint from (000 ha)
