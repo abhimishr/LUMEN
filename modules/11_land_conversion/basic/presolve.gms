@@ -7,7 +7,6 @@
 
 *' Conversions within natveg are not allowed
 v11_lu_transitions.fx(fpu,"primf","nonforest")   = 0;
-v11_lu_transitions.fx(fpu,"secdf","nonforest")   = 0;
 
 *' primf can only decrease
 v11_lu_transitions.fx(fpu,land_from,"primf")     = 0;

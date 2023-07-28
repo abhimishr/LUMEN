@@ -4,3 +4,6 @@
 *** |  you are granted additional permissions described in the License
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
+
+alias(activity_crop, activity_crop2);
+alias(irr, irr2);

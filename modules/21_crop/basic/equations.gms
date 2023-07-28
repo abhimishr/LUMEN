@@ -11,7 +11,6 @@ q21_cropland(fpu2) ..
                     vm_land(fpu2,"agric")
                     ;
 
-
 q21_cropland_change(fpu2) ..
                     vm_land(fpu2, "agric")
                     =e=

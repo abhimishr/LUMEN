@@ -9,6 +9,8 @@ parameters
 p10_luh_init(fpu, land_class_agg)   Land use initialization dataset (000 ha)
 p10_land_cost(fpu, land_class_agg)  Cost of land use (USD per ha)
 pcm_land(fpu, land_class_agg)        Land use from previous year (000 ha)
+p10_land_glo(t, land_class_agg)     Global land pool (000 ha)
+p10_land_total(t)                   Global land total (000 ha)
 ;
 
 positive variables

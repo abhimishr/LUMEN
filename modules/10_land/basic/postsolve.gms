@@ -6,7 +6,9 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 *** Land Patterns are transferred to next timestep
-pcm_land(fpu, land_class_agg) = vm_land.l(fpu, land_class_agg);
+pcm_land(fpu, land_class_agg)   = vm_land.l(fpu, land_class_agg);
+p10_land_glo(t, land_class_agg) = sum(fpu, pcm_land(fpu, land_class_agg)) ;
+p10_land_total(t)               = sum(land_class_agg, p10_land_glo(t, land_class_agg));
 
 *########### Begin R section ###########
 ov_land(t, fpu, land_class_agg, "marginal")      = vm_land.m(fpu, land_class_agg);

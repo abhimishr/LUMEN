@@ -8,3 +8,7 @@
 p11_conversion_cost(fpu, "nonforest")   = 1100  ;
 p11_conversion_cost(fpu, "pastr")       = 1600  ;
 p11_conversion_cost(fpu, "range")       = 900   ;
+
+p11_conversion_cost(fpu, "primf")       = 20000   ;
+p11_conversion_cost(fpu, "secdf")       = 30000   ;
+p11_conversion_cost(fpu, "agric")       = 2000   ;

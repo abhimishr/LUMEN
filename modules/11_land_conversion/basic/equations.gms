@@ -49,8 +49,8 @@ q11_cost(fpu2) ..
                 s11_cost_balance
                 ;
 
-q11_cost_reduction(fpu2, land_avl_conversion) ..
-                v11_landreduction_cost(fpu2, land_avl_conversion)
+q11_cost_reduction(fpu2, land_class_agg) ..
+                v11_landreduction_cost(fpu2, land_class_agg)
                 =e=
-                v11_landreduction(fpu2, land_avl_conversion) * p11_conversion_cost(fpu2, land_avl_conversion)
+                v11_landreduction(fpu2, land_class_agg) * p11_conversion_cost(fpu2, land_class_agg)
                 ;
