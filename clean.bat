@@ -7,5 +7,4 @@ call del *.lxi
 call del xllink.*
 call del *.g0?
 call del *.scr
-call del *.ref
 call del *.gsp

@@ -5,5 +5,5 @@
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-* Initialize crop area
-vm_crop_area.l(fpu, activity_crop, irr) = pcm_land(fpu, "agric") * p21_initial_crop(fpu, activity_crop, irr) ;
+vm_crop_area.l(fpu, activity_crop, irr)     = fm_crop_area(fpu, activity_crop, irr);
+vm_crop_yield.l(fpu, activity_crop, irr)    = fm_crop_yield(fpu, activity_crop, irr);

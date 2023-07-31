@@ -8,7 +8,7 @@
 q89_cost_glo ..
                     vm_cost_glo
                     =e=
-                    sum(fpu2, v89_cost_fpu(fpu2))
+                    sum(fpu2, v89_cost_fpu(fpu2)) / 1e6
                     ;
 
 q89_cost_fpu(fpu2) ..
@@ -17,4 +17,6 @@ q89_cost_fpu(fpu2) ..
                     vm_land_cost(fpu2)
                     +
                     vm_cost_land_transition(fpu2)
+                    +
+                    vm_crop_production_cost(fpu2)
                     ;

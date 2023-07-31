@@ -6,7 +6,7 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 q21_cropland(fpu2) ..
-                    sum((activity_crop,irr), vm_area(fpu2,activity_crop,irr)) 
+                    sum((activity_crop,irr), vm_crop_area(fpu2,activity_crop,irr)) 
                     =e= 
                     vm_land(fpu2,"agric")
                     ;

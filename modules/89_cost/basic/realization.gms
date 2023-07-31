@@ -16,4 +16,5 @@ $Ifi "%phase%" ==  "input" $include "./modules/89_cost/basic/input.gms"
 $Ifi "%phase%" ==  "equations" $include "./modules/89_cost/basic/equations.gms"
 $Ifi "%phase%" ==  "preloop" $include "./modules/89_cost/basic/preloop.gms"
 $Ifi "%phase%" ==  "presolve" $include "./modules/89_cost/basic/presolve.gms"
+$Ifi "%phase%" ==  "postsolve" $include "./modules/89_cost/basic/postsolve.gms"
 *########### End R section   ###########

@@ -4,6 +4,3 @@
 *** |  you are granted additional permissions described in the License
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
-
-* Initialize crop area
-vm_crop_area.l(fpu, activity_crop, irr) = pcm_land(fpu, "agric") * p21_initial_crop(fpu, activity_crop, irr) ;

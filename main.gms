@@ -9,6 +9,7 @@
 $setglobal land                 basic
 $setglobal land_conversion      basic
 $setglobal crop                 basic
+$setglobal production           basic
 $setglobal cost                 basic
 $setglobal optimization         nlp
 *************************** End Module Settings ********************************
