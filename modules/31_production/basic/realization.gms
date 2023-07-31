@@ -8,6 +8,7 @@
 *########### Begin R section ###########
 $Ifi "%phase%" ==  "sets" $include "./modules/31_production/basic/sets.gms"
 $Ifi "%phase%" ==  "declarations" $include "./modules/31_production/basic/declarations.gms"
+$Ifi "%phase%" ==  "input" $include "./modules/31_production/basic/input.gms"
 $Ifi "%phase%" ==  "equations" $include "./modules/31_production/basic/equations.gms"
 $Ifi "%phase%" ==  "preloop" $include "./modules/31_production/basic/preloop.gms"
 $Ifi "%phase%" ==  "presolve" $include "./modules/31_production/basic/presolve.gms"
