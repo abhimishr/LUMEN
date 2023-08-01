@@ -11,6 +11,7 @@ s31_seed
 
 parameters
 p31_crop_production_cost(fpu, activity_crop)            Unit production cost for crops(USD per tDM)
+p31_crop_yield(t, fpu, activity_crop, irr)              Time specific optimized crop yiels (tDM per ha)
 ;
 
 positive variables
@@ -22,6 +23,7 @@ vm_crop_production_cost(fpu)                            Crop production cost (00
 equations
 q31_crop_production(fpu, activity_crop)                 Crop production (000 tDM)
 q31_crop_production_cost(fpu)                           Crop production cost (000 USD)
+q31_crop_yield_update(fpu, activity_crop, irr)          Update to crop yields (tDM per ha)
 ;
 
 *########### Begin R section ###########

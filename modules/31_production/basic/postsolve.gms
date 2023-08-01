@@ -5,6 +5,8 @@
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
+p31_crop_yield(t, fpu, activity_crop, irr) =   vm_crop_yield.l(fpu, activity_crop, irr);
+
 *########### Begin R section ###########
 ov_crop_yield(t, fpu, activity_crop, irr, "marginal")        = vm_crop_yield.m(fpu, activity_crop, irr);
 ov_crop_production(t, fpu, activity_crop, "marginal")        = vm_crop_production.m(fpu, activity_crop);

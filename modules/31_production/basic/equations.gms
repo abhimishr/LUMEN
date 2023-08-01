@@ -21,3 +21,9 @@ q31_crop_production_cost(fpu2) ..
                                 p31_crop_production_cost(fpu2, activity_crop)
                     )
                     ;
+
+q31_crop_yield_update(fpu2, activity_crop, irr) ..
+                    vm_crop_yield(fpu2, activity_crop, irr) 
+                    =g=
+                    fm_crop_yield(fpu2, activity_crop, irr) 
+                    ;
