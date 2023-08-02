@@ -5,18 +5,18 @@
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-parameter f31_iomat(iso3, commodity, activity) Input output matrix (1)
+parameter f31_jcratio(iso, activity, commodity) Activity commodity ratio (1)
 /
 $ondelim
-$include "./modules/31_production/input/iomat.cs4"
+$include "./modules/31_production/input/jcratio.cs4"
 $offdelim
 /
 ;
 
-parameter f31_jcratio(iso3, activity, commodity) Activity commodity ratio (1)
+parameter f31_iomat(iso, commodity, activity) Input output matrix (1)
 /
 $ondelim
-$include "./modules/31_production/input/jcratio.cs4"
+$include "./modules/31_production/input/iomat.cs4"
 $offdelim
 /
 ;

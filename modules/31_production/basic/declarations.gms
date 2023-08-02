@@ -12,26 +12,23 @@ s31_seed
 parameters
 p31_crop_production_cost(fpu, activity_crop)            Unit production cost for crops(USD per tDM)
 p31_crop_yield(t, fpu, activity_crop, irr)              Time specific optimized crop yiels (tDM per ha)
+p31_iomat(iso, commodity, activity_crop)                Dummy paraeter for testing (1)
+p31_iomat_fpu(fpu, commodity, activity_crop)            Dummy par (1)
 ;
 
 positive variables
-vm_crop_yield(fpu, activity_crop, irr)                  Crop production yield (tDM per ha)
-vm_crop_production(fpu, activity_crop)                  Crop production area (000 ha)
-vm_crop_production_cost(fpu)                            Crop production cost (000 USD)
+vm_crop_yield(fpu, activity_crop, irr)                      Crop production yield (tDM per ha)
+vm_crop_production(fpu, activity_crop)                      Crop production area (000 ha)
 ;
 
 equations
-q31_crop_production(fpu, activity_crop)                 Crop production (000 tDM)
-q31_crop_production_cost(fpu)                           Crop production cost (000 USD)
-q31_crop_yield_update(fpu, activity_crop, irr)          Update to crop yields (tDM per ha)
+q31_crop_production(fpu, activity_crop)                     Crop production (000 tDM)
 ;
 
 *########### Begin R section ###########
 parameters
-ov_crop_yield(t, fpu, activity_crop, irr, type)                 Crop production yield (tDM per ha)
-ov_crop_production(t, fpu, activity_crop, type)                 Crop production area (000 ha)
-ov_crop_production_cost(t, fpu, type)                           Crop production cost (000 USD)
-oq31_crop_production(t, fpu, activity_crop, type)                Crop production (000 tDM)
-oq31_crop_production_cost(t, fpu, type)                          Crop production cost (000 USD)
+ov_crop_yield(t, fpu, activity_crop, irr, type)                     Crop production yield (tDM per ha)
+ov_crop_production(t, fpu, activity_crop, type)                     Crop production area (000 ha)
+oq31_crop_production(t, fpu, activity_crop, type)                    Crop production (000 tDM)
 ;
 *########### End R section   ###########

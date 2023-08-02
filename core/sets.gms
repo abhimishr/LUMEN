@@ -50,7 +50,7 @@ sets
                 ZAM_NAM, ZAM_TZA, ZAM_ZMB, ZAM_ZWE, ZHJ_CHM
                 /
         
-        iso3            Country
+        iso            Country
                 /
                 AFG, AGO, ALB, ARG, ARM, AUS, AUT, AZE, BDI, BEN, BFA, BGD, BGR, BLR, BLT, 
                 BLX, BLZ, BOL, BRA, BTN, BWA, CAF, CAN, CHL, CHM, CHP, CIV, CMR, COD, COG, 
@@ -65,9 +65,11 @@ sets
                 USA, UZB, VEN, VNM, VUT, YEM, ZAF, ZMB, ZWE
                 /
 
-        fpu2(fpu)       Fpus dynamic
+        iso2(iso)               ISO countries dynamic        
 
-        fpu2iso3        FPU to ISO3 mapping
+        fpu2(fpu)               Fpus dynamic
+
+        fpu2iso3(iso, fpu)     FPU to iso mapping
                 /
                 (AFG) . (AMD_AFG, WAI_AFG)
                 (AGO) . (CAF_AGO, CON_AGO, ZAM_AGO)
@@ -438,7 +440,7 @@ sets
                 cgrss	Grass
                 /
 
-        activity2commodity      Activity to commodity mapping
+        activity2commodity(activity, commodity)         Activity to commodity mapping
                 /
                 (jbana)         .        (cbana)
                 (jbarl)         .        (cbarl)
@@ -538,13 +540,14 @@ sets
 
 * Initialize dynamic sets
 fpu2(fpu) = yes;
+iso2(iso) = yes;
 
 *#### Time sets
 sets 
         time_annual
                 / 2015 * 2020 /
         t(time_annual)
-                / 2015 * 2018 /
+                / 2015 * 2016 /
 ;
 
 set  ct(t) Current time period;

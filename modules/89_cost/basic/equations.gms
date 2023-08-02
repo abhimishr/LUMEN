@@ -17,6 +17,4 @@ q89_cost_fpu(fpu2) ..
                     vm_land_cost(fpu2)
                     +
                     vm_cost_land_transition(fpu2)
-                    +
-                    vm_crop_production_cost(fpu2)
                     ;

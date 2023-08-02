@@ -5,6 +5,23 @@
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
+loop(iso,
+    loop(commodity,
+        activity_iomat(activity_crop)$(sum(activity2commodity(activity, commodity), f31_iomat(iso, commodity, activity_crop))) = yes;
+        p31_iomat(iso, commodity, activity_iomat) = f31_iomat(iso, commodity, activity_iomat);
+    );
+);
+
+loop(iso,
+    loop(activity_crop,
+        commodity_iomat(commodity)$(sum(activity2commodity(activity, commodity), f31_iomat(iso, commodity, activity_crop))) = yes;
+        p31_iomat(iso, commodity_iomat, activity_crop) = f31_iomat(iso, commodity_iomat, activity_crop);
+    );
+);
+
+p31_iomat_fpu(fpu, commodity_iomat, activity_iomat) = sum(fpu2iso3(iso, fpu), p31_iomat(iso, commodity_iomat, activity_iomat));
+p31_iomat_fpu(fpu, commodity_iomat, activity_iomat) = 1$(p31_iomat_fpu(fpu, commodity_iomat, activity_iomat));
+
 p31_crop_production_cost(fpu, activity_crop) = 1;
 
 $funclibin stolib stodclib
