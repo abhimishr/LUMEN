@@ -6,6 +6,7 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 *************************** Begin Module Settings ******************************
+$setglobal drivers              ssp
 $setglobal land                 basic
 $setglobal land_conversion      basic
 $setglobal crop                 basic

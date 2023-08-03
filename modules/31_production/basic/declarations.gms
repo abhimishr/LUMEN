@@ -31,6 +31,8 @@ q31_commodity_production(fpu, activity_crop, commodity)     commodity production
 parameters
 ov_crop_yield(t, fpu, activity_crop, irr, type)                     Crop production yield (tDM per ha)
 ov_crop_production(t, fpu, activity_crop, type)                     Crop production area (000 ha)
+ov31_commodity_production(t, fpu, activity_crop, commodity, type)    commodity production (000 tDM)
 oq31_crop_production(t, fpu, activity_crop, type)                    Crop production (000 tDM)
+oq31_commodity_production(t, fpu, activity_crop, commodity, type)    commodity production (000 tDM)
 ;
 *########### End R section   ###########
