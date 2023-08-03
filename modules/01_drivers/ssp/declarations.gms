@@ -4,3 +4,8 @@
 *** |  you are granted additional permissions described in the License
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
+
+parameter
+pm_pop(t_all, iso, hh)          Population by household (million)
+pm_gdp(t_all, iso, hh)          GDP by household (billion USD)
+;

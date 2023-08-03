@@ -546,7 +546,9 @@ iso2(iso) = yes;
 
 *#### Time sets
 sets 
-        time_annual
+        t_all
+                / 1990 * 2100 /
+        time_annual(t_all)
                 / 2015 * 2020 /
         t(time_annual)
                 / 2015 * 2016 /
