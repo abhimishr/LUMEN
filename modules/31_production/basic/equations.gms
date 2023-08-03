@@ -12,6 +12,8 @@ q31_crop_production(fpu2, activity_crop) ..
                         vm_crop_yield(fpu2, activity_crop, irr) 
                         * 
                         vm_crop_area(fpu2, activity_crop, irr)
+                        * 
+                        f31_multicropping(fpu2, activity_crop, irr)
                         )
                     ;
 
