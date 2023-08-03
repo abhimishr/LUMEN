@@ -532,9 +532,11 @@ sets
                 (jyams)         .        (cyams)
                 /        
         
-        irr Irrigation
+        irr             All Irrigation
                 / air, arf, gir, grf/
 
+        irr_agr(irr)    Agricultural Irrigation
+                / air, arf /
 
 ;
 

@@ -8,6 +8,9 @@
 q31_crop_production(fpu2, activity_crop) ..
                     vm_crop_production(fpu2, activity_crop)
                     =e=
-                    sum(irr, vm_crop_yield(fpu2, activity_crop, irr) 
-                                * vm_crop_area(fpu2, activity_crop, irr))
+                    sum(irr, 
+                        vm_crop_yield(fpu2, activity_crop, irr) 
+                        * 
+                        vm_crop_area(fpu2, activity_crop, irr)
+                        )
                     ;
