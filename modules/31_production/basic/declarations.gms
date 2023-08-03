@@ -13,16 +13,18 @@ parameters
 p31_crop_production_cost(fpu, activity_crop)            Unit production cost for crops(USD per tDM)
 p31_crop_yield(t, fpu, activity_crop, irr)              Time specific optimized crop yiels (tDM per ha)
 p31_iomat(iso, commodity, activity_crop)                Dummy paraeter for testing (1)
-p31_iomat_fpu(fpu, commodity, activity_crop)            Dummy par (1)
+p31_iomat_fpu(fpu, activity, commodity)                 Dummy par (1)
 ;
 
 positive variables
 vm_crop_yield(fpu, activity_crop, irr)                      Crop production yield (tDM per ha)
 vm_crop_production(fpu, activity_crop)                      Crop production area (000 ha)
+v31_commodity_production(fpu, activity_crop, commodity)     commodity production (000 tDM)
 ;
 
 equations
 q31_crop_production(fpu, activity_crop)                     Crop production (000 tDM)
+q31_commodity_production(fpu, activity_crop, commodity)     commodity production (000 tDM)
 ;
 
 *########### Begin R section ###########

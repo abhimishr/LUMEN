@@ -4,15 +4,3 @@
 *** |  you are granted additional permissions described in the License
 *** |  Exception, version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
-
-sets
-activity_iomat(activity_crop)
-commodity_iomat(commodity)
-iso_commodity(iso)
-; 
-
-activity_iomat(activity_crop)   = no;
-commodity_iomat(commodity)      = no;
-
-alias(activity_iomat2, activity_iomat);
-alias(commodity_iomat2, commodity_iomat);

@@ -20,3 +20,11 @@ $include "./modules/31_production/input/iomat.cs4"
 $offdelim
 /
 ;
+
+parameter f31_IO_combined(iso, activity, commodity)  Combined Input output matrix (1);
+
+loop(commodity,
+    loop(activity,
+        f31_IO_combined(iso, activity, commodity) = f31_iomat(iso, commodity, activity) + f31_jcratio(iso, activity, commodity);
+    );
+);
