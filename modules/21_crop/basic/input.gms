@@ -13,6 +13,7 @@ $include "./modules/21_crop/input/yld00.cs4"
 $offdelim
 /
 ;
+fm_crop_yield(fpu, activity, irr) = round(fm_crop_yield(fpu, activity, irr) ,3);
 
 parameter fm_crop_area(fpu, activity, irr) Parameter for yield (t per ha)
 /
@@ -21,3 +22,4 @@ $include "./modules/21_crop/input/AREA00.cs4"
 $offdelim
 /
 ;
+fm_crop_area(fpu, activity, irr) = round(fm_crop_area(fpu, activity, irr),3);

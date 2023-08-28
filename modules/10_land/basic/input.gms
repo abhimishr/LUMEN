@@ -11,3 +11,5 @@ $ondelim
 $include "./modules/10_land/input/luh_init.cs3"
 $offdelim
 ;
+
+luh_init(fpu,land_class) = round(luh_init(fpu,land_class), 4);

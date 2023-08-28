@@ -19,3 +19,6 @@ $include "./modules/35_demand/input/base_commodity_demand.cs4"
 $offdelim
 /
 ;
+
+f35_income_elasticity(t_all, iso, commodity, hh) = round(f35_income_elasticity(t_all, iso, commodity, hh), 3);
+f35_base_demand(iso, commodity) = round(f35_base_demand(iso, commodity), 3);

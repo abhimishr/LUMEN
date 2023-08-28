@@ -21,6 +21,7 @@ $include "./modules/31_production/input/iomat.cs4"
 $offdelim
 /
 ;
+f31_iomat(iso, commodity, activity) = round(f31_iomat(iso, commodity, activity), 4);
 
 * Combine activity commodity sets in single parameter
 parameter f31_IO_combined(iso, activity, commodity)  Combined Input output matrix (1);

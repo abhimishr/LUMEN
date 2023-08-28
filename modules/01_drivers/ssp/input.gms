@@ -35,7 +35,7 @@ $offdelim
 ;
 
 * Some rounding
-fm_gdp_household_base(iso, hh)               = round(fm_gdp_household_base(iso, hh)               , 3);
+fm_gdp_household_base(iso, hh)          = round(fm_gdp_household_base(iso, hh)          , 3);
 fm_growth_gdp_household(t_all, iso, hh) = round(fm_growth_gdp_household(t_all, iso, hh) , 3);
-fm_pop_household_base(iso, hh)               = round(fm_pop_household_base(iso, hh)               , 3);
+fm_pop_household_base(iso, hh)          = round(fm_pop_household_base(iso, hh)          , 3);
 fm_growth_pop_household(t_all, iso, hh) = round(fm_growth_pop_household(t_all, iso, hh) , 3);
