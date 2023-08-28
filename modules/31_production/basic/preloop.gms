@@ -20,5 +20,7 @@ function
 
 s31_seed = setseedh(2023);
 
-p31_crop_production_cost(fpu, activity_crop) = randnorm(5,2);
+loop(activity_crop, 
+    p31_crop_production_cost(fpu, activity_crop) = uniform(10,30);
+);
 display p31_crop_production_cost;

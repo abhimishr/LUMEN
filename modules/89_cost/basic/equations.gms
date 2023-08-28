@@ -17,5 +17,9 @@ q89_cost_fpu(fpu2) ..
                     =e=
                     vm_land_cost(fpu2)
                     +
-                    vm_cost_land_transition(fpu2)
+                    vm_cost_land_transition(fpu2) 
+                    +
+                    sum(activity_crop, vm_crop_production_cost(fpu2, activity_crop))
+                    +
+                    sum((fpu2iso3(iso,fpu2), commodity), v31_commodity_production_free(iso, commodity) * 1e5)
                     ;

@@ -263,7 +263,7 @@ sets
                 jopul	Other Pulses
                 jbana	Bananas
                 jplnt	Plantains
-                jsubf	(Sub)-Tropical Fruits
+                jsubf	Sub-Tropical Fruits
                 jtemf	Temperate Fruits
                 jvege	Vegetables
                 jsugc	Sugarcane
@@ -330,7 +330,7 @@ sets
                 jopul	Other Pulses
                 jbana	Bananas
                 jplnt	Plantains
-                jsubf	(Sub)-Tropical Fruits
+                jsubf	Sub-Tropical Fruits
                 jtemf	Temperate Fruits
                 jvege	Vegetables
                 jsugc	Sugarcane
@@ -401,7 +401,7 @@ sets
                 copul	Other Pulses
                 cbana	Bananas
                 cplnt	Plantains
-                csubf	(Sub)-Tropical Fruits
+                csubf	Sub-Tropical Fruits
                 ctemf	Temperate Fruits
                 cvege	Vegetables
                 csugc	Sugarcane

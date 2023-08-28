@@ -6,6 +6,12 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
+q31_crop_production_cost(fpu2, activity_crop) ..
+                    vm_crop_production_cost(fpu2, activity_crop)
+                    =e=
+                    vm_crop_production(fpu2, activity_crop) * p31_crop_production_cost(fpu2, activity_crop) 
+                    ;
+
 q31_crop_production(fpu2, activity_crop) ..
                     vm_crop_production(fpu2, activity_crop)
                     =e=
@@ -19,7 +25,7 @@ q31_crop_production(fpu2, activity_crop) ..
                     ;
 
 q31_commodity_production(fpu2, activity_crop, commodity)$(p31_iomat_fpu(fpu2, activity_crop, commodity)) ..
-                    v31_commodity_production(fpu2, activity_crop, commodity)
+                    vm_commodity_production(fpu2, activity_crop, commodity)
                     =e=
                     vm_crop_production(fpu2, activity_crop)
                     / 
