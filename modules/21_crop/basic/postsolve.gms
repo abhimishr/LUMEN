@@ -6,16 +6,20 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-pm_crop_area(fpu, activity_crop, irr) = vm_crop_area.l(fpu, activity_crop, irr);
+pm_crop_area(fpu, activity_crop, irr_agr) = vm_crop_area.l(fpu, activity_crop, irr_agr);
 
 *########### Begin R section ###########
 ov_crop_area(t, fpu, activity_crop, irr, "marginal")      = vm_crop_area.m(fpu, activity_crop, irr);
 oq21_cropland_change(t, fpu, "marginal")                  = q21_cropland_change.m(fpu);
+oq21_cropland_area(t, fpu, "marginal")                    = q21_cropland_area.m(fpu);
 ov_crop_area(t, fpu, activity_crop, irr, "level")         = vm_crop_area.l(fpu, activity_crop, irr);
 oq21_cropland_change(t, fpu, "level")                     = q21_cropland_change.l(fpu);
+oq21_cropland_area(t, fpu, "level")                       = q21_cropland_area.l(fpu);
 ov_crop_area(t, fpu, activity_crop, irr, "upper")         = vm_crop_area.up(fpu, activity_crop, irr);
 oq21_cropland_change(t, fpu, "upper")                     = q21_cropland_change.up(fpu);
+oq21_cropland_area(t, fpu, "upper")                       = q21_cropland_area.up(fpu);
 ov_crop_area(t, fpu, activity_crop, irr, "lower")         = vm_crop_area.lo(fpu, activity_crop, irr);
 oq21_cropland_change(t, fpu, "lower")                     = q21_cropland_change.lo(fpu);
+oq21_cropland_area(t, fpu, "lower")                       = q21_cropland_area.lo(fpu);
 ;
 *########### End R section   ###########

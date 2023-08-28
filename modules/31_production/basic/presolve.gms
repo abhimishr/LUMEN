@@ -6,4 +6,4 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-vm_crop_yield.l(fpu, activity_crop, irr)        = fm_crop_yield(fpu, activity_crop, irr);
+vm_crop_yield.lo(fpu, activity_crop, irr)        = fm_crop_yield(fpu, activity_crop, irr);

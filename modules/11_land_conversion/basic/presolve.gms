@@ -13,6 +13,6 @@ v11_lu_transitions.fx(fpu,"primf","nonforest")   = 0;
 v11_lu_transitions.fx(fpu,land_from,"primf")     = 0;
 v11_lu_transitions.up(fpu,"primf","primf")       = Inf;
 
-*' urban cannot decrease can only decrease
+*' urban cannot decrease
 v11_lu_transitions.fx(fpu,"urban",land_to)       = 0;
 v11_lu_transitions.up(fpu,"urban","urban")       = Inf;
