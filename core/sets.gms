@@ -81,17 +81,29 @@ sets
         
         iso(iso_all)       IMPACT Countries
                 /
-                AFG, AGO, ALB, ARG, ARM, AUS, AUT, AZE, BDI, BEN, BFA, BGD, BGR, BLR, BLT, 
-                BLX, BLZ, BOL, BRA, BTN, BWA, CAF, CAN, CHL, CHM, CHP, CIV, CMR, COD, COG, 
-                COL, CRB, CRI, CUB, CYP, CZE, DEU, DJI, DNK, DOM, DZA, ECU, EGY, ERI, ETH, 
-                FJI, FNP, FRP, GAB, GEO, GHA, GIN, GMB, GNB, GNQ, GRC, GRL, GSA, GTM, HND, 
-                HRV, HTI, HUN, IDN, IND, IRL, IRN, IRQ, ISL, ISR, ITP, JAM, JOR, JPN, KAZ, 
-                KEN, KGZ, KHM, KOR, LAO, LBN, LBR, LBY, LKA, LSO, MDA, MDG, MEX, MLI, MMR, 
-                MNG, MOR, MOZ, MRT, MWI, MYS, NAM, NER, NGA, NIC, NLD, NOR, NPL, NZL, OAO, 
-                OBN, OIO, OPO, OSA, PAK, PAN, PER, PHL, PNG, POL, PRK, PRT, PRY, PSE, RAP, 
-                ROU, RUS, RWA, SAU, SDN, SEN, SLB, SLE, SLV, SOM, SPP, SSD, SVK, SVN, SWE, 
-                SWZ, SYR, TCD, TGO, THA, TJK, TKM, TLS, TUN, TUR, TZA, UGA, UKP, UKR, URY, 
-                USA, UZB, VEN, VNM, VUT, YEM, ZAF, ZMB, ZWE
+                AFG, AGO, ALB, ARG, ARM, AUS, AUT, AZE, 
+                BDI, BEN, BFA, BGD, BGR, BLR, BLT, BLX, BLZ, BOL, BRA, BTN, BWA, 
+                CAF, CAN, CHL, CHM, CHP, CIV, CMR, COD, COG, COL, CRB, CRI, CUB, CYP, CZE, 
+                DEU, DJI, DNK, DOM, DZA, 
+                ECU, EGY, ERI, ETH, 
+                FJI, FNP, FRP, 
+                GAB, GEO, GHA, GIN, GMB, GNB, GNQ, GRC, GRL, GSA, GTM, 
+                HND, HRV, HTI, HUN, 
+                IDN, IND, IRL, IRN, IRQ, ISL, ISR, ITP, 
+                JAM, JOR, JPN, 
+                KAZ, KEN, KGZ, KHM, KOR, 
+                LAO, LBN, LBR, LBY, LKA, LSO, 
+                MDA, MDG, MEX, MLI, MMR, MNG, MOR, MOZ, MRT, MWI, MYS, 
+                NAM, NER, NGA, NIC, NLD, NOR, NPL, NZL, 
+                OAO, OBN, OIO, OPO, OSA, 
+                PAK, PAN, PER, PHL, PNG, POL, PRK, PRT, PRY, PSE, 
+                RAP, ROU, RUS, RWA, 
+                SAU, SDN, SEN, SLB, SLE, SLV, SOM, SPP, SSD, SVK, SVN, SWE, SWZ, SYR, 
+                TCD, TGO, THA, TJK, TKM, TLS, TUN, TUR, TZA, 
+                UGA, UKP, UKR, URY, USA, UZB, 
+                VEN, VNM, VUT, 
+                YEM, 
+                ZAF, ZMB, ZWE
                 /
 
         iso2(iso)               ISO countries dynamic        
