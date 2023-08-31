@@ -25,9 +25,6 @@ have received a copy of the GNU Affero General Public License along with this
 program. See the LICENSE file in the root directory. If not, see
 https://www.gnu.org/licenses/agpl.txt
 
-Under Section 7 of AGPL-3.0, you are granted additional permissions described
-in the MAgPIE License Exception, version 1.0 (see LICENSE file).
-
 ## NOTES
 Following the principles of good scientific practice it is recommended
 to make the source code available in the events of model based publications
