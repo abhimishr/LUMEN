@@ -1,4 +1,4 @@
-# MAgPIE - Modular open source framework for modeling global land-systems
+# Land Use Model with Environmental Nexus
 
 ## WHAT IS LUMEN?
 *Land Use Model with Environmental Nexus* (LUMEN) is a modular open source model 
