@@ -15,6 +15,7 @@ $include "./modules/11_land_conversion/module.gms"
 $include "./modules/21_crop/module.gms"
 $include "./modules/31_production/module.gms"
 $include "./modules/35_demand/module.gms"
+$include "./modules/41_trade/module.gms"
 $include "./modules/89_cost/module.gms"
 $include "./modules/99_optimization/module.gms"
 * ########################################################################

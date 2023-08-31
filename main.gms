@@ -13,6 +13,7 @@ $setglobal land_conversion      basic
 $setglobal crop                 basic
 $setglobal production           basic
 $setglobal demand               basic
+$setglobal trade                bilateral
 $setglobal cost                 basic
 $setglobal optimization         nlp
 *************************** End Module Settings ********************************
