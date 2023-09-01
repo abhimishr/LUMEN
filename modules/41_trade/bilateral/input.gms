@@ -12,6 +12,12 @@ $include "./modules/41_trade/input/self_suff.cs3"
 $offdelim
 ;
 
+table f41_export_ratio(t_all, iso_all, commodity) Export ratio (1)
+$ondelim
+$include "./modules/41_trade/input/export_ratio.cs3"
+$offdelim
+;
+
 table f41_city_time(fpu,statistical_id)  Estimated travel time in minutes to the nearest urban area in 2015 (minutes)
 $ondelim
 $include "./modules/41_trade/input/time_city.csv"
