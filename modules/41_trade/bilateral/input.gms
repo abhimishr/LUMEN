@@ -11,3 +11,31 @@ $ondelim
 $include "./modules/41_trade/input/self_suff.cs3"
 $offdelim
 ;
+
+table f41_city_time(fpu,statistical_id)  Estimated travel time in minutes to the nearest urban area in 2015 (minutes)
+$ondelim
+$include "./modules/41_trade/input/time_city.csv"
+$offdelim
+;
+
+table f41_port_time(fpu,statistical_id)  Estimated travel time in minutes to the nearest port in 2015 (minutes)
+$ondelim
+$include "./modules/41_trade/input/time_port.csv"
+$offdelim
+;
+
+parameter f41_export_qty(t_all,iso3_from, commodity, iso3_to)  Export quantity (tonne)
+/
+$ondelim
+$include "./modules/41_trade/input/export_qty.csv"
+$offdelim
+/
+;
+
+parameter f41_import_qty(t_all,iso3_from, commodity, iso3_to)  Export quantity (tonne)
+/
+$ondelim
+$include "./modules/41_trade/input/import_qty.csv"
+$offdelim
+/
+;

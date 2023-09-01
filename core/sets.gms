@@ -579,6 +579,9 @@ sets
         irr_agr(irr)    Agricultural Irrigation
                 / air, arf /
 
+        statistical_id  Which type of statistical indicator 
+                /mean, median, min, max/
+
 ;
 
 * Initialize dynamic sets
@@ -588,7 +591,7 @@ iso2(iso) = yes;
 *#### Time sets
 sets 
         t_all
-                / 1990 * 2100 /
+                / 1980 * 2100 /
         time_annual(t_all)
                 / 2015 * 2020 /
         t(time_annual)
@@ -599,3 +602,5 @@ set  ct(t) Current time period;
 set pt(t) Previous time period;
 
 alias(t,t2);
+alias(iso_all, iso3_from);
+alias(iso_all, iso3_to);
