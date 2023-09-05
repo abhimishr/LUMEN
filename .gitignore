@@ -2,6 +2,6 @@ InputData/
 *.lst
 *.gsp
 *.ref
-modules/*/input/*
+*.cs*
 *gdx
 restart*.g*
