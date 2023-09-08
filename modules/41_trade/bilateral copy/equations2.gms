@@ -40,7 +40,7 @@
 *' Distributing the global excess demand to exporting regions is based on regional export shares [@schmitz_trading_2012].
 *' Export shares are derived from FAO data (see @schmitz_trading_2012 for details). They are 0 for importing regions.
 
- q41_excess_supply(iso, commodity)..
+ q41_excess_production(iso, commodity)..
                                     v41_excess_prod(iso, commodity) 
                                     =e=
                                     v41_excess_dem(iso, commodity)
@@ -49,9 +49,51 @@
 
 *' Trade tariffs are associated with exporting regions. They are dependent on net exports and tariff levels.
  q41_costs_tariffs(iso, commodity)..
-                                    v41_cost_tariff_reg(iso, commodity) 
+                                    v41_cost_tariff_iso(iso, commodity) 
                                     =g=
-                                    sum(i_im, 
-                                        sum(ct, i41_trade_tariff(ct, iso, i_im, commodity)) 
+                                    sum(importer, 
+                                        sum(ct, p41_trade_tariff(ct, iso, importer, commodity)) 
                                         * 
-                                        v41_trade(iso,i_im,commodity));
+                                        v41_trade(iso,importer,commodity));
+
+*' Trade margins costs assigned currently to exporting region. Margins at region level 
+q41_costs_margins(iso,commodity)..
+                            v41_cost_margin_iso(iso,commodity) 
+                            =g=
+                            sum(importer, 
+                                    p41_trade_margin(iso,importer,commodity) 
+                                    * 
+                                    v41_trade(iso,importer,commodity));
+
+*' Transportation costs
+
+q41_cost_transport(iso,commodity) ..
+                            vm_cost_tr_cities(iso,commodity) 
+                            =e= 
+                            sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
+                            vm_commodity_production(fpu2, activity_crop, commodity)
+                            *
+                            f41_city_time(fpu2, "median"))
+                            * 
+                            f41_transport_costs(commodity);
+
+q41_cost_transport_port(iso,commodity) ..
+                            vm_cost_tr_cities(iso,commodity) 
+                            =e= 
+                            sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
+                            vm_commodity_production(fpu2, activity_crop, commodity) 
+                            * 
+                            f41_port_time(fpu2,"median"))
+                            * 
+                            f41_transport_costs(commodity);
+
+*' regional trade values are the sum of transport margin and tariff costs
+q41_cost_trade_iso(iso,commodity)..
+                                vm_cost_trade_iso(iso,commodity) 
+                                =g=
+                                v41_cost_tariff_iso(iso,commodity) 
+                                + 
+                                v41_cost_margin_iso(iso,commodity)
+                                +
+                                vm_cost_tr_cities(iso,commodity)
+                                ;

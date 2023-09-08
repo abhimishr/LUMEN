@@ -106,7 +106,7 @@ sets
                 ZAF, ZMB, ZWE
                 /
 
-        iso2(iso)               ISO countries dynamic        
+        iso2(iso)               ISO countries dynamic       
 
         fpu2(fpu)               Fpus dynamic
 
@@ -604,3 +604,5 @@ set pt(t) Previous time period;
 alias(t,t2);
 alias(iso_all, iso3_from);
 alias(iso_all, iso3_to);
+alias(iso_all, importer);
+alias(iso_all, exporter);
