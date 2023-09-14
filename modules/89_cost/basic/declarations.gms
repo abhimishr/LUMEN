@@ -7,13 +7,15 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 variables
-vm_cost_glo         Global level LU cost (000 USD)
+vm_cost_glo         Global level LU cost (billion USD)
 v89_cost_fpu(fpu)   Fpu level cost (000 USD)
+v89_cost_iso(iso)   iso level cost (000 USD)
 ;
 
 equations
-q89_cost_glo        Global level LU cost (000 USD)
-q89_cost_fpu(fpu)   Fpu level cost (000 USD)
+q89_cost_glo                    Global level LU cost (000 USD)
+q89_cost_fpu(fpu)               Fpu level cost (000 USD)
+q89_cost_iso(iso)               iso level cost (000 USD)
 ;
 
 *########### Begin R section ###########

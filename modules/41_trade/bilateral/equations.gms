@@ -10,7 +10,25 @@
 *' Production can be freely allocated globally.
 
  q41_trade_glo(commodity)..
-  sum((fpu2, activity_crop), vm_commodity_production(fpu2, activity_crop, commodity))
+  sum(iso, vm_commodity_production(iso, commodity) + v41_trade_supply(iso, commodity))
   =g=
   sum((ct, iso), p35_commodity_demand_agriculture(ct, iso, commodity))
   ;
+
+q41_global_trade_pool(iso, commodity)$[sum(ct, f41_export_ratio(ct, iso, commodity)>0]..
+    v41_global_trade_pool(iso, commodity)
+    =e=
+    vm_commodity_production(iso, commodity) * sum(ct, f41_export_ratio(ct, iso, commodity))
+    ;
+
+q41_global_trade(iso, commodity)$[sum(ct, f41_selfsuff(ct, iso, commodity)) < 1]..
+    v41_trade_supply(iso, commodity)
+    =e=
+    v41_global_trade_pool(iso, commodity) * sum(ct, 1 - f41_selfsuff(ct, iso, commodity))
+    ;
+
+q41_trade_cost(iso, commodity)..
+    v41_trade_cost(iso, commodity)
+    =e=
+    v41_trade_supply(iso, commodity) * sum(fpu2iso3(iso, fpu2), f41_city_time(fpu2,"median"))
+    ;

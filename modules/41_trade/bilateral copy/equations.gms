@@ -11,7 +11,7 @@
 
  q41_trade_glo(commodity)..
   sum((activity2commodity(activity_crop, commodity), fpu2),
-  vm_commodity_production(fpu2, activity_crop, commodity))
+  v31_production(fpu2, activity_crop, commodity))
   =g=
   sum((ct, iso), p35_commodity_demand_agriculture(ct, iso, commodity))
   ;
@@ -65,7 +65,7 @@ q41_cost_transport(iso,commodity) ..
                             =g= 
                             0;
 *                            sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
-*                            vm_commodity_production(fpu2, activity_crop, commodity)
+*                            v31_production(fpu2, activity_crop, commodity)
 *                            *
 *                            f41_city_time(fpu2, "median"))
 *                            * 
@@ -76,7 +76,7 @@ q41_cost_transport_port(iso,commodity) ..
                             =g= 
                             0;
 *                            sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
-*                            vm_commodity_production(fpu2, activity_crop, commodity) 
+*                            v31_production(fpu2, activity_crop, commodity) 
 *                            * 
 *                            f41_port_time(fpu2,"median"))
 *                            * 
