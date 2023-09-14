@@ -18,3 +18,15 @@ q41_global_trade_pool(iso, commodity)   Global trade pool from exporting countri
 q41_trade_cost(iso, commodity)          Cost of trade to nearest city (000 USD)
 q41_global_trade(iso, commodity)        Global trade to hypothetical global warehouse (000 tDM)
 ;
+
+*########### Begin R section ###########
+parameters
+ov41_global_trade_pool(t, iso, commodity, type)  Global trade pool from exporting countries (000 tDM)
+ov41_trade_cost(t, iso, commodity, type)         Cost of trade to nearest city (000 USD)
+ov41_trade_supply(t, iso, commodity, type)       Global trade pool in self sufficiency pool (000 tDM)
+oq41_trade_glo(t, commodity, type)               Global trade akin to commodity production (000 tDM)
+oq41_global_trade_pool(t, iso, commodity, type)  Global trade pool from exporting countries (000 tDM)
+oq41_trade_cost(t, iso, commodity, type)         Cost of trade to nearest city (000 USD)
+oq41_global_trade(t, iso, commodity, type)       Global trade to hypothetical global warehouse (000 tDM)
+;
+*########### End R section   ###########

@@ -9,19 +9,27 @@
 *########### Begin R section ###########
 ov_cost_glo(t, "marginal")             = vm_cost_glo.m;
 ov89_cost_fpu(t, fpu, "marginal")      = v89_cost_fpu.m(fpu);
+ov89_cost_iso(t, iso, "marginal")      = v89_cost_iso.m(iso);
 oq89_cost_glo(t, "marginal")           = q89_cost_glo.m;
 oq89_cost_fpu(t, fpu, "marginal")      = q89_cost_fpu.m(fpu);
+oq89_cost_iso(t, iso, "marginal")      = q89_cost_iso.m(iso);
 ov_cost_glo(t, "level")                = vm_cost_glo.l;
 ov89_cost_fpu(t, fpu, "level")         = v89_cost_fpu.l(fpu);
+ov89_cost_iso(t, iso, "level")         = v89_cost_iso.l(iso);
 oq89_cost_glo(t, "level")              = q89_cost_glo.l;
 oq89_cost_fpu(t, fpu, "level")         = q89_cost_fpu.l(fpu);
+oq89_cost_iso(t, iso, "level")         = q89_cost_iso.l(iso);
 ov_cost_glo(t, "upper")                = vm_cost_glo.up;
 ov89_cost_fpu(t, fpu, "upper")         = v89_cost_fpu.up(fpu);
+ov89_cost_iso(t, iso, "upper")         = v89_cost_iso.up(iso);
 oq89_cost_glo(t, "upper")              = q89_cost_glo.up;
 oq89_cost_fpu(t, fpu, "upper")         = q89_cost_fpu.up(fpu);
+oq89_cost_iso(t, iso, "upper")         = q89_cost_iso.up(iso);
 ov_cost_glo(t, "lower")                = vm_cost_glo.lo;
 ov89_cost_fpu(t, fpu, "lower")         = v89_cost_fpu.lo(fpu);
+ov89_cost_iso(t, iso, "lower")         = v89_cost_iso.lo(iso);
 oq89_cost_glo(t, "lower")              = q89_cost_glo.lo;
 oq89_cost_fpu(t, fpu, "lower")         = q89_cost_fpu.lo(fpu);
+oq89_cost_iso(t, iso, "lower")         = q89_cost_iso.lo(iso);
 ;
 *########### End R section   ###########

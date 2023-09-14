@@ -9,12 +9,13 @@
 *' Ensuring that global supply is larger or equal to demand.
 *' Production can be freely allocated globally.
 
- q41_trade_glo(commodity)..
+q41_trade_glo(commodity)..
   sum(iso, vm_commodity_production(iso, commodity) + v41_trade_supply(iso, commodity))
   =g=
   sum((ct, iso), p35_commodity_demand_agriculture(ct, iso, commodity))
   ;
 
+$ontext
 q41_global_trade_pool(iso, commodity)$[sum(ct, f41_export_ratio(ct, iso, commodity)>0]..
     v41_global_trade_pool(iso, commodity)
     =e=
@@ -31,4 +32,23 @@ q41_trade_cost(iso, commodity)..
     v41_trade_cost(iso, commodity)
     =e=
     v41_trade_supply(iso, commodity) * sum(fpu2iso3(iso, fpu2), f41_city_time(fpu2,"median"))
+    ;
+$offtext
+
+q41_global_trade_pool(iso, c_trade)$[sum(ct, f41_export_ratio(ct, iso, c_trade))>0]..
+    v41_global_trade_pool(iso, c_trade)
+    =e=
+    vm_commodity_production(iso, c_trade) * sum(ct, f41_export_ratio(ct, iso, c_trade))
+    ;
+
+q41_global_trade(iso, c_trade)$[sum(ct, f41_selfsuff(ct, iso, c_trade)) < 1]..
+    v41_trade_supply(iso, c_trade)
+    =e=
+    v41_global_trade_pool(iso, c_trade) * sum(ct, 1 - f41_selfsuff(ct, iso, c_trade))
+    ;
+
+q41_trade_cost(iso, c_trade)..
+    v41_trade_cost(iso, c_trade)
+    =e=
+    v41_trade_supply(iso, c_trade) * sum(fpu2iso3(iso, fpu2), f41_city_time(fpu2,"median"))
     ;
