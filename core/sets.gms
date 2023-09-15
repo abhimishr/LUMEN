@@ -602,7 +602,7 @@ set  ct(t) Current time period;
 set pt(t) Previous time period;
 
 alias(t,t2);
-alias(iso_all, iso3_from);
-alias(iso_all, iso3_to);
+alias(iso_all, reporter);
+alias(iso_all, partner);
 alias(iso_all, importer);
 alias(iso_all, exporter);

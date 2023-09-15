@@ -6,6 +6,11 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
+parameters
+i41_global_imports(t_all, commodity, reporter)       Global imports from FAO food balance (000 tDM)
+i41_global_exports(t_all, commodity, reporter)       Global exports from FAO food balance (000 tDM)
+;
+
 positive variables
 v41_global_trade_pool(iso, commodity)   Global trade pool from exporting countries (000 tDM)
 v41_trade_cost(iso, commodity)          Cost of trade to nearest city (000 USD)

@@ -47,6 +47,25 @@ q41_global_trade(iso, c_trade)$[sum(ct, f41_selfsuff(ct, iso, c_trade)) < 1]..
     v41_global_trade_pool(iso, c_trade) * sum(ct, 1 - f41_selfsuff(ct, iso, c_trade))
     ;
 
+$ontext
+*' Excess production
+
+q41_export_production(iso, c_trade)$[sum(ct, f41_selfsuff(ct, iso, c_trade)) > 1]..
+    v41_export_production(iso, c_trade)
+    =e=
+    vm_commodity_production(iso, c_trade) * * sum(ct, f41_selfsuff(ct, iso, c_trade) - 1)
+    ;
+*' Trade demand
+
+q41_import_demand(iso, c_trade)$[sum(ct, f41_selfsuff(ct, iso, c_trade)) < 1]..
+    v41_import_demand(iso, c_trade)
+    =e=
+    vm_commodity_production(iso, c_trade) * * sum(ct, 1 - f41_selfsuff(ct, iso, c_trade))
+    ;
+$offtext
+
+*' Trade cost
+
 q41_trade_cost(iso, c_trade)..
     v41_trade_cost(iso, c_trade)
     =e=

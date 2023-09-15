@@ -33,20 +33,17 @@ $offdelim
 parameter f41_transport_costs(commodity)    Cost of Transportation (USD per tDM per min)
 ;
 
-$ontext
-parameter f41_export_qty(t_all,iso3_from, commodity, iso3_to)  Export quantity (tonne)
+parameter f41_export_qty(t_all,reporter, commodity, partner)  Export quantity (tonne)
 /
 $ondelim
 $include "./modules/41_trade/input/export_qty.csv"
 $offdelim
 /
-;
 
-parameter f41_import_qty(t_all,iso3_from, commodity, iso3_to)  Export quantity (tonne)
+parameter f41_import_qty(t_all,reporter, commodity, partner)  Bilateral trade quantity (tonne)
 /
 $ondelim
 $include "./modules/41_trade/input/import_qty.csv"
 $offdelim
 /
 ;
-$offtext
