@@ -5,3 +5,5 @@ InputData/
 *gdx
 restart*.g*
 full.gms
+*.Rhistory
+*.ini

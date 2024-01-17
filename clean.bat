@@ -8,3 +8,4 @@ call del xllink.*
 call del *.g0?
 call del *.scr
 call del *.gsp
+call del *.Rhistory
