@@ -6,15 +6,5 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-q21_cropland_change(fpu2) ..
-                    vm_land(fpu2, "agric")
-                    =e=
-                    pcm_land(fpu2, "agric") * 1.05
-                    ; 
-
-q21_cropland_area(fpu2) ..
-                    sum((activity_crop, irr_agr), 
-                    vm_crop_area(fpu2, activity_crop, irr_agr))
-                    =e=
-                    vm_land(fpu2, "agric")
-                    ;
+* Initialize crop area
+vm_crop_area.l(fpu, activity_crop, irr) = pcm_land(fpu, "agric") * p29_initial_crop(fpu, activity_crop, irr) ;

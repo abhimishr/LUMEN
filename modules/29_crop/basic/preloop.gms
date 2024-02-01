@@ -6,5 +6,5 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-* Initialize crop area
-vm_crop_area.l(fpu, activity_crop, irr) = pcm_land(fpu, "agric") * p21_initial_crop(fpu, activity_crop, irr) ;
+p29_crop_area_agg(fpu) = sum((activity_crop2,irr_agr), fm_crop_area(fpu, activity_crop2, irr_agr));
+p29_initial_crop(fpu, activity_crop, irr_agr)$(p29_crop_area_agg(fpu) > 0) = fm_crop_area(fpu, activity_crop, irr_agr) / p29_crop_area_agg(fpu);

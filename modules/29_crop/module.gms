@@ -16,5 +16,5 @@
 *' @authors Abhijeet Mishra, Shahnila Dunston, Sherman Robinson
 
 *###################### R SECTION START (MODULETYPES) ##########################
-$Ifi "%crop%" == "basic" $include "./modules/21_crop/basic/realization.gms"
+$Ifi "%crop%" == "basic" $include "./modules/29_crop/basic/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################

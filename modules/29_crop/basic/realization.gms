@@ -11,11 +11,11 @@
 *' @limitations No competition for land
 
 *########### Begin R section ###########
-$Ifi "%phase%" ==  "sets" $include "./modules/21_crop/basic/sets.gms"
-$Ifi "%phase%" ==  "declarations" $include "./modules/21_crop/basic/declarations.gms"
-$Ifi "%phase%" ==  "input" $include "./modules/21_crop/basic/input.gms"
-$Ifi "%phase%" ==  "equations" $include "./modules/21_crop/basic/equations.gms"
-$Ifi "%phase%" ==  "preloop" $include "./modules/21_crop/basic/preloop.gms"
-$Ifi "%phase%" ==  "presolve" $include "./modules/21_crop/basic/presolve.gms"
-$Ifi "%phase%" ==  "postsolve" $include "./modules/21_crop/basic/postsolve.gms"
+$Ifi "%phase%" ==  "sets" $include "./modules/29_crop/basic/sets.gms"
+$Ifi "%phase%" ==  "declarations" $include "./modules/29_crop/basic/declarations.gms"
+$Ifi "%phase%" ==  "input" $include "./modules/29_crop/basic/input.gms"
+$Ifi "%phase%" ==  "equations" $include "./modules/29_crop/basic/equations.gms"
+$Ifi "%phase%" ==  "preloop" $include "./modules/29_crop/basic/preloop.gms"
+$Ifi "%phase%" ==  "presolve" $include "./modules/29_crop/basic/presolve.gms"
+$Ifi "%phase%" ==  "postsolve" $include "./modules/29_crop/basic/postsolve.gms"
 *########### End R section   ###########

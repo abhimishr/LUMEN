@@ -10,16 +10,16 @@ pm_crop_area(fpu, activity_crop, irr_agr) = vm_crop_area.l(fpu, activity_crop, i
 
 *########### Begin R section ###########
 ov_crop_area(t, fpu, activity_crop, irr, "marginal")      = vm_crop_area.m(fpu, activity_crop, irr);
-oq21_cropland_change(t, fpu, "marginal")                  = q21_cropland_change.m(fpu);
-oq21_cropland_area(t, fpu, "marginal")                    = q21_cropland_area.m(fpu);
+oq29_cropland_change(t, fpu, "marginal")                  = q29_cropland_change.m(fpu);
+oq29_cropland_area(t, fpu, "marginal")                    = q29_cropland_area.m(fpu);
 ov_crop_area(t, fpu, activity_crop, irr, "level")         = vm_crop_area.l(fpu, activity_crop, irr);
-oq21_cropland_change(t, fpu, "level")                     = q21_cropland_change.l(fpu);
-oq21_cropland_area(t, fpu, "level")                       = q21_cropland_area.l(fpu);
+oq29_cropland_change(t, fpu, "level")                     = q29_cropland_change.l(fpu);
+oq29_cropland_area(t, fpu, "level")                       = q29_cropland_area.l(fpu);
 ov_crop_area(t, fpu, activity_crop, irr, "upper")         = vm_crop_area.up(fpu, activity_crop, irr);
-oq21_cropland_change(t, fpu, "upper")                     = q21_cropland_change.up(fpu);
-oq21_cropland_area(t, fpu, "upper")                       = q21_cropland_area.up(fpu);
+oq29_cropland_change(t, fpu, "upper")                     = q29_cropland_change.up(fpu);
+oq29_cropland_area(t, fpu, "upper")                       = q29_cropland_area.up(fpu);
 ov_crop_area(t, fpu, activity_crop, irr, "lower")         = vm_crop_area.lo(fpu, activity_crop, irr);
-oq21_cropland_change(t, fpu, "lower")                     = q21_cropland_change.lo(fpu);
-oq21_cropland_area(t, fpu, "lower")                       = q21_cropland_area.lo(fpu);
+oq29_cropland_change(t, fpu, "lower")                     = q29_cropland_change.lo(fpu);
+oq29_cropland_area(t, fpu, "lower")                       = q29_cropland_area.lo(fpu);
 ;
 *########### End R section   ###########
