@@ -13,5 +13,5 @@
 *' @authors Abhijeet Mishra
 
 *###################### R SECTION START (MODULETYPES) ##########################
-$Ifi "%cost%" == "basic" $include "./modules/89_cost/basic/realization.gms"
+$Ifi "%cost%" == "full" $include "./modules/89_cost/full/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################

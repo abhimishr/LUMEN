@@ -14,7 +14,7 @@ $setglobal crop                 basic
 $setglobal production           basic
 $setglobal demand               basic
 $setglobal trade                bilateral
-$setglobal cost                 basic
+$setglobal cost                 full
 $setglobal optimization         nlp
 *************************** End Module Settings ********************************
 
