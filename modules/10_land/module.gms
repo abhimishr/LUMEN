@@ -16,5 +16,5 @@
 *' @authors Abhijeet Mishra, Shahnila Dunston, Sherman Robinson
 
 *###################### R SECTION START (MODULETYPES) ##########################
-$Ifi "%land%" == "basic" $include "./modules/10_land/basic/realization.gms"
+$Ifi "%land%" == "luhv2" $include "./modules/10_land/luhv2/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################
