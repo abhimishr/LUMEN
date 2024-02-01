@@ -10,6 +10,7 @@
 $setglobal drivers              ssp
 $setglobal land                 luhv2
 $setglobal land_conversion      transitionmatrix
+$setglobal yields               endo
 $setglobal crop                 basic
 $setglobal production           basic
 $setglobal demand               basic

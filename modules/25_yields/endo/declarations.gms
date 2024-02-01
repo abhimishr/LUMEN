@@ -6,11 +6,12 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-parameter fm_crop_area(fpu, activity, irr) Parameter for yield (t per ha)
-/
-$ondelim
-$include "./modules/29_crop/input/AREA00.cs4"
-$offdelim
-/
+positive variables
+vm_crop_yield(fpu, activity_crop, irr)                      Crop production yield (tDM per ha)
 ;
-fm_crop_area(fpu, activity, irr) = round(fm_crop_area(fpu, activity, irr),3);
+
+*########### Begin R section ###########
+parameters
+ov_crop_yield(t, fpu, activity_crop, irr, type)                     Crop production yield (tDM per ha)
+;
+*########### End R section   ###########

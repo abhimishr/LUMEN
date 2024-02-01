@@ -6,11 +6,12 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-parameter fm_crop_area(fpu, activity, irr) Parameter for yield (t per ha)
-/
-$ondelim
-$include "./modules/29_crop/input/AREA00.cs4"
-$offdelim
-/
-;
-fm_crop_area(fpu, activity, irr) = round(fm_crop_area(fpu, activity, irr),3);
+*' @title Yields
+
+*' @description 
+
+*' @authors Abhijeet Mishra
+
+*###################### R SECTION START (MODULETYPES) ##########################
+$Ifi "%yields%" == "endo" $include "./modules/25_yields/endo/realization.gms"
+*###################### R SECTION END (MODULETYPES) ############################

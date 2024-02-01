@@ -12,6 +12,7 @@ $onrecurse
 $include "./modules/01_drivers/module.gms"
 $include "./modules/10_land/module.gms"
 $include "./modules/11_land_conversion/module.gms"
+$include "./modules/25_yields/module.gms"
 $include "./modules/29_crop/module.gms"
 $include "./modules/31_production/module.gms"
 $include "./modules/35_demand/module.gms"

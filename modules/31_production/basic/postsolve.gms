@@ -9,7 +9,6 @@
 p31_crop_yield(t, fpu, activity_crop, irr) =   vm_crop_yield.l(fpu, activity_crop, irr);
 
 *########### Begin R section ###########
-ov_crop_yield(t, fpu, activity_crop, irr, "marginal")              = vm_crop_yield.m(fpu, activity_crop, irr);
 ov_crop_production(t, fpu, activity_crop, "marginal")              = vm_crop_production.m(fpu, activity_crop);
 ov_commodity_production(t, iso, commodity, "marginal")             = vm_commodity_production.m(iso, commodity);
 ov_crop_production_cost(t, fpu, activity_crop, "marginal")         = vm_crop_production_cost.m(fpu, activity_crop);
@@ -19,7 +18,6 @@ oq31_crop_production(t, fpu, activity_crop, "marginal")            = q31_crop_pr
 oq31_commodity_production(t, iso, commodity, "marginal")           = q31_commodity_production.m(iso, commodity);
 oq31_crop_production_cost(t, fpu, activity_crop, "marginal")       = q31_crop_production_cost.m(fpu, activity_crop);
 oq31_production(t, fpu, activity_crop, commodity, "marginal")      = q31_production.m(fpu, activity_crop, commodity);
-ov_crop_yield(t, fpu, activity_crop, irr, "level")                 = vm_crop_yield.l(fpu, activity_crop, irr);
 ov_crop_production(t, fpu, activity_crop, "level")                 = vm_crop_production.l(fpu, activity_crop);
 ov_commodity_production(t, iso, commodity, "level")                = vm_commodity_production.l(iso, commodity);
 ov_crop_production_cost(t, fpu, activity_crop, "level")            = vm_crop_production_cost.l(fpu, activity_crop);
@@ -29,7 +27,6 @@ oq31_crop_production(t, fpu, activity_crop, "level")               = q31_crop_pr
 oq31_commodity_production(t, iso, commodity, "level")              = q31_commodity_production.l(iso, commodity);
 oq31_crop_production_cost(t, fpu, activity_crop, "level")          = q31_crop_production_cost.l(fpu, activity_crop);
 oq31_production(t, fpu, activity_crop, commodity, "level")         = q31_production.l(fpu, activity_crop, commodity);
-ov_crop_yield(t, fpu, activity_crop, irr, "upper")                 = vm_crop_yield.up(fpu, activity_crop, irr);
 ov_crop_production(t, fpu, activity_crop, "upper")                 = vm_crop_production.up(fpu, activity_crop);
 ov_commodity_production(t, iso, commodity, "upper")                = vm_commodity_production.up(iso, commodity);
 ov_crop_production_cost(t, fpu, activity_crop, "upper")            = vm_crop_production_cost.up(fpu, activity_crop);
@@ -39,7 +36,6 @@ oq31_crop_production(t, fpu, activity_crop, "upper")               = q31_crop_pr
 oq31_commodity_production(t, iso, commodity, "upper")              = q31_commodity_production.up(iso, commodity);
 oq31_crop_production_cost(t, fpu, activity_crop, "upper")          = q31_crop_production_cost.up(fpu, activity_crop);
 oq31_production(t, fpu, activity_crop, commodity, "upper")         = q31_production.up(fpu, activity_crop, commodity);
-ov_crop_yield(t, fpu, activity_crop, irr, "lower")                 = vm_crop_yield.lo(fpu, activity_crop, irr);
 ov_crop_production(t, fpu, activity_crop, "lower")                 = vm_crop_production.lo(fpu, activity_crop);
 ov_commodity_production(t, iso, commodity, "lower")                = vm_commodity_production.lo(iso, commodity);
 ov_crop_production_cost(t, fpu, activity_crop, "lower")            = vm_crop_production_cost.lo(fpu, activity_crop);
