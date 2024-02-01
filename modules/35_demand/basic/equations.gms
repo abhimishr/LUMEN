@@ -6,11 +6,11 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-q35_commodity_demand(iso, commodity) ..
-                                        sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
+q35_commodity_demand(iso2, commodity) ..
+                                        sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso2, fpu2)),
                                         v31_production(fpu2, activity_crop, commodity))
                                         +
-                                        vm_commodity_production_free(iso, commodity)
+                                        vm_commodity_production_free(iso2, commodity)
                                         =e=
-                                        sum(ct, p35_commodity_demand_agriculture(ct, iso, commodity))
+                                        sum(ct, p35_commodity_demand_agriculture(ct, iso2, commodity))
                                         ;

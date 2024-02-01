@@ -11,7 +11,7 @@ q89_cost_glo ..
                     =e=
                     sum(fpu2, v89_cost_fpu(fpu2)) / 1e6
                     +
-                    sum(iso, v89_cost_iso(iso)) / 1e6
+                    sum(iso2, v89_cost_iso(iso2)) / 1e6
                     ;
 
 q89_cost_fpu(fpu2) ..
@@ -22,12 +22,14 @@ q89_cost_fpu(fpu2) ..
                     vm_cost_land_transition(fpu2) 
                     +
                     sum(activity_crop, vm_crop_production_cost(fpu2, activity_crop))
+                    +
+                    sum((activity_crop, irr), vm_intensification_cost(fpu2, activity_crop, irr))
                     ;
 
-q89_cost_iso(iso) ..
-                    v89_cost_iso(iso)
+q89_cost_iso(iso2) ..
+                    v89_cost_iso(iso2)
                     =e=
-                    sum(commodity, vm_commodity_production_free(iso, commodity) * 1e5)
+                    sum(commodity, vm_commodity_production_free(iso2, commodity) * 1e5)
                     +
-                    sum(commodity, v41_trade_cost(iso, commodity))
+                    sum(commodity, v41_trade_cost(iso2, commodity))
                     ;

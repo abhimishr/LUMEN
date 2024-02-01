@@ -29,12 +29,12 @@ q31_production(fpu2, activity_crop, commodity)$(p31_iomat_fpu(fpu2, activity_cro
                     =e=
                     vm_crop_production(fpu2, activity_crop)
                     / 
-                    sum(fpu2iso3(iso, fpu2), f31_IO_combined(iso, activity_crop, commodity))
+                    sum(fpu2iso3(iso2, fpu2), f31_IO_combined(iso2, activity_crop, commodity))
                     ;
 
-q31_commodity_production(iso, commodity) ..
-                                        vm_commodity_production(iso, commodity)
+q31_commodity_production(iso2, commodity) ..
+                                        vm_commodity_production(iso2, commodity)
                                         =e=
-                                        sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
+                                        sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso2, fpu2)),
                                         v31_production(fpu2, activity_crop, commodity))
                                         ;
