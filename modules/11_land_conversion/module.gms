@@ -13,5 +13,5 @@
 *' @authors Abhijeet Mishra
 
 *###################### R SECTION START (MODULETYPES) ##########################
-$Ifi "%land_conversion%" == "basic" $include "./modules/11_land_conversion/basic/realization.gms"
+$Ifi "%land_conversion%" == "transitionmatrix" $include "./modules/11_land_conversion/transitionmatrix/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################

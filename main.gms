@@ -9,7 +9,7 @@
 *************************** Begin Module Settings ******************************
 $setglobal drivers              ssp
 $setglobal land                 luhv2
-$setglobal land_conversion      basic
+$setglobal land_conversion      transitionmatrix
 $setglobal crop                 basic
 $setglobal production           basic
 $setglobal demand               basic
