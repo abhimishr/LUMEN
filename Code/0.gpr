@@ -1,0 +1,14 @@
+[PROJECT]
+
+[RP:MAIN]
+1=
+
+[OPENWINDOW_1]
+FILE0=C:\00_MyGAMS\LUMEN_Thanasis\Code\main.gms
+FILE1=C:\00_MyGAMS\LUMEN_Thanasis\Code\main.lst
+FILE2=C:\00_MyGAMS\LUMEN_Thanasis\Code\main.lst
+MAXIM=0
+TOP=0
+LEFT=0
+HEIGHT=936
+WIDTH=958

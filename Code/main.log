@@ -1,0 +1,52 @@
+--- Job main.gms Start 02/14/24 15:48:27 43.2.0 859d62d5 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\43\gmsprmNT.txt
+    C:\Users\APetsakos\OneDrive - CGIAR\Documents\GAMS\gamsconfig.yaml
+--- GAMS Parameters defined
+    Input C:\00_MyGAMS\LUMEN_Thanasis\Code\main.gms
+    PageSize 0
+    ScrDir C:\00_MyGAMS\LUMEN_Thanasis\Code\225a\
+    SysDir C:\GAMS\43\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: MUD - 70 User License                          G230301|0002CV-GEN
+          Int Food Policy Research Institute, IFPRI, Computer ServiceDC2119
+          C:\GAMS\43\gamslice.txt
+          License Admin: John Hanly, J.Hanly@cgiar.org                     
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 43.2.0   Copyright (C) 1987-2023 GAMS Development. All rights reserved
+--- Starting compilation
+--- main.gms(11) 2 Mb
+--- . config.gms(7) 2 Mb
+--- main.gms(25) 2 Mb
+--- . Activities.gms(147) 3 Mb
+--- main.gms(26) 3 Mb
+--- . Commodities.gms(81) 3 Mb
+--- main.gms(27) 3 Mb
+--- . Costs.gms(7) 3 Mb
+--- main.gms(28) 3 Mb
+--- . Land.gms(44) 3 Mb
+--- main.gms(29) 3 Mb
+--- . Other.gms(29) 3 Mb
+--- main.gms(30) 3 Mb
+--- . Regions.gms(527) 3 Mb
+--- main.gms(31) 3 Mb
+--- . Mappings.gms(94) 3 Mb
+--- main.gms(43) 3 Mb
+--- . Parameters.gms(103) 3 Mb
+--- main.gms(44) 3 Mb
+--- . DataLoad.gms(1) 3 Mb
+--- GDXin=C:\00_MyGAMS\LUMEN_Thanasis\Data\DATA_ALL.gdx
+--- GDX File ($gdxIn) C:\00_MyGAMS\LUMEN_Thanasis\Data\DATA_ALL.gdx
+--- . DataLoad.gms(12) 37 Mb
+--- main.gms(45) 37 Mb
+--- . Model.gms(333) 37 Mb
+--- main.gms(49) 37 Mb
+--- Starting execution: elapsed 0:00:00.185
+--- main.gms(972) 38 Mb
+    MODEL RUN
+*** Status: Normal completion
+--- Job main.gms Stop 02/14/24 15:48:28 elapsed 0:00:00.193

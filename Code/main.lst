@@ -1,0 +1,1466 @@
+GAMS 43.2.0  859d62d5 May 4, 2023           WEX-WEI x86 64bit/MS Windows - 02/14/24 15:48:27 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  *--------------------------------------------------------------------------*
+   2  *         PROJECT PREAMBLE: OVERRIDES PREAMBLES IN INCLUDED SCRIPTS        *
+   3  *--------------------------------------------------------------------------*
+   4   
+   7   
+   9   
+  10   
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\config.gms
+  13   
+  15   
+  17   
+  19  *------------------------------ PREAMBLE END ------------------------------*
+  20   
+  21   
+  22   
+  23   
+  24   
+  25   
+  26   
+  27  ***************************PREDEFINED MACROS************************************
+  28  *$include "./core/macros.gms"
+  29  ********************************************************************************
+  30   
+  31  *  Loading sets
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Activities.gms
+  33  SET   activity    "All activities"
+  34  /  jbeef    Cattle
+  35     jpork           Pigs
+  36     jlamb           Sheep and Goats
+  37     jpoul           Poultry
+  38     jeggs           Eggs
+  39     jmilk           Dairy
+  40     jbarl           Barley
+  41     jmaiz           Maize
+  42     jmill           Millet
+  43     jrice           Rice
+  44     jrice2       Rice for water model
+  45     jrice3       Rice for water model
+  46     jsorg           Sorghum
+  47     jwhea           Wheat
+  48     jocer           Other Cereals
+  49     jcass           Cassava and Other R&T
+  50     jpota           Potato
+  51     jswpt           Sweet Potatoes
+  52     jyams           Yams
+  53     jorat           Other Roots & Tubers
+  54     jbean           Beans
+  55     jchkp           Chickpeas
+  56     jcowp           Cowpeas
+  57     jlent           Lentils
+  58     jpigp           Pigeonpeas
+  59     jopul           Other Pulses
+  60     jbana           Bananas
+  61     jplnt           Plantains
+  62     jsubf           Sub-Tropical Fruits
+  63     jtemf           Temperate Fruits
+  64     jvege           Vegetables
+  65     jsugc           Sugarcane
+  66     jsugb           Sugarbeet
+  67     jsugr           Sugar
+  68     jsugrc       Cane Sugar
+  69     jsugrb       Beet Sugar
+  70     jgrnd           Groundnuts
+  71     jgdnt           Groundnuts for Oil
+  72     jgdol           Groundnut oil
+  73     jrpsd           Rapeseed
+  74     jrpnt           Rapeseed for Oil
+  75     jrpol           Rapeseed oil
+  76     jsoyb           Soybeans
+  77     jsbnt           Soybeans for Oil
+  78     jsbol           Soybean oil
+  79     jsnfl           Sunflower Seeds
+  80     jsfnt           Sunflower seeds for Oil
+  81     jsfol           Sunflower oil
+  82     jpalm           Oil Palm Fruit
+  83     jplol    Palm Oil
+  84     jpkol           Palm Kernal Oil
+  85     jtols           Total Other Oilseeds
+  86     jtont           Total Other Oilseeds for Oil
+  87     jtool           Total Other Oils
+  88     jgdoln       Groundnut oil from gdnt
+  89     jrpoln       Rapeseed oil from rpnt
+  90     jsboln       Soybean Oil from sbnt
+  91     jsfoln       Sunflower Oil from sfnt
+  92     jtooln       Total Other oils from tont
+  93     jgdolt       Groundnut oil from grnd
+  94     jrpolt       Rapeseed oil from rpsd
+  95     jsbolt       Soybean Oil from soyb
+  96     jsfolt       Sunflower Oil from snfl
+  97     jtoolt       Total other oils from tols
+  98     jcoco           Cocoa
+  99     jcafe           Coffee
+ 100     jcott           Cotton
+ 101     jteas           Tea
+ 102     jothr           Other Crops
+ 103     jfodr           Fodder Crops
+ 104     jpstr           Pasture and Meadows
+ 105  /                  ;
+ 106   
+ 107  SET   activity_crop(activity)  "Crop activities"
+ 108                  /
+ 109                  jbarl   Barley
+ 110                  jmaiz   Maize
+ 111                  jmill   Millet
+ 112                  jrice   Rice
+ 113                  jsorg   Sorghum
+ 114                  jwhea   Wheat
+ 115                  jocer   Other Cereals
+ 116                  jcass   Cassava and Other R&T
+ 117                  jpota   Potato
+ 118                  jswpt   Sweet Potatoes
+ 119                  jyams   Yams
+ 120                  jorat   Other Roots & Tubers
+ 121                  jbean   Beans
+ 122                  jchkp   Chickpeas
+ 123                  jcowp   Cowpeas
+ 124                  jlent   Lentils
+ 125                  jpigp   Pigeonpeas
+ 126                  jopul   Other Pulses
+ 127                  jbana   Bananas
+ 128                  jplnt   Plantains
+ 129                  jsubf   Sub-Tropical Fruits
+ 130                  jtemf   Temperate Fruits
+ 131                  jvege   Vegetables
+ 132                  jsugc   Sugarcane
+ 133                  jsugb   Sugarbeet
+ 134                  jsugr   Sugar
+ 135                  jsugrc  Cane Sugar
+ 136                  jsugrb  Beet Sugar
+ 137                  jgrnd   Groundnuts
+ 138                  jgdnt   Groundnuts for Oil
+ 139                  jgdol   Groundnut oil
+ 140                  jrpsd   Rapeseed
+ 141                  jrpnt   Rapeseed for Oil
+ 142                  jrpol   Rapeseed oil
+ 143                  jsoyb   Soybeans
+ 144                  jsbnt   Soybeans for Oil
+ 145                  jsbol   Soybean oil
+ 146                  jsnfl   Sunflower Seeds
+ 147                  jsfnt   Sunflower seeds for Oil
+ 148                  jsfol   Sunflower oil
+ 149                  jpalm   Oil Palm Fruit
+ 150                  jplol   Palm Oil
+ 151                  jpkol   Palm Kernal Oil
+ 152                  jtols   Total Other Oilseeds
+ 153                  jtont   Total Other Oilseeds for Oil
+ 154                  jtool   Total Other Oils
+ 155                  jgdoln  Groundnut oil from gdnt
+ 156                  jrpoln  Rapeseed oil from rpnt
+ 157                  jsboln  Soybean Oil from sbnt
+ 158                  jsfoln  Sunflower Oil from sfnt
+ 159                  jtooln  Total Other oils from tont
+ 160                  jgdolt  Groundnut oil from grnd
+ 161                  jrpolt  Rapeseed oil from rpsd
+ 162                  jsbolt  Soybean Oil from soyb
+ 163                  jsfolt  Sunflower Oil from snfl
+ 164                  jtoolt  Total other oils from tols
+ 165                  jcoco   Cocoa
+ 166                  jcafe   Coffee
+ 167                  jcott   Cotton
+ 168                  jteas   Tea
+ 169                  jothr   Other Crops
+ 170                  /
+ 171  ;
+ 172   
+ 173  ALIAS(activity_crop, activity_crop2);
+ 174   
+ 175  SET   irr   "All irrigation types" / air, arf, gir, grf/ ;
+ 176   
+ 177  SET   irr_agr(irr) "Agricultural Irrigation" / air, arf /;
+ 178   
+ 179  ALIAS(irr, irr2);
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Commodities.gms
+ 181  SET   commodity   "Master set of all commodities"
+ 182                  /
+ 183                  cbeef   Cattle
+ 184                  cpork   Pigs
+ 185                  clamb   Sheep and Goats
+ 186                  cpoul   Poultry
+ 187                  ceggs   Eggs
+ 188                  cmilk   Dairy
+ 189                  cbarl   Barley
+ 190                  cmaiz   Maize
+ 191                  cmill   Millet
+ 192                  crice   Rice
+ 193                  csorg   Sorghum
+ 194                  cwhea   Wheat
+ 195                  cocer   Other Cereals
+ 196                  ccass   Cassava
+ 197                  cpota   Potato
+ 198                  cswpt   Sweet Potatoes
+ 199                  cyams   Yams
+ 200                  corat   Other Roots & Tubers
+ 201                  cbean   Beans
+ 202                  cchkp   Chickpeas
+ 203                  ccowp   Cowpeas
+ 204                  clent   Lentils
+ 205                  cpigp   Pigeonpeas
+ 206                  copul   Other Pulses
+ 207                  cbana   Bananas
+ 208                  cplnt   Plantains
+ 209                  csubf   Sub-Tropical Fruits
+ 210                  ctemf   Temperate Fruits
+ 211                  cvege   Vegetables
+ 212                  csugc   Sugarcane
+ 213                  csugb   Sugarbeet
+ 214                  csugr   Refined Sugar
+ 215                  cgrnd   Groundnuts
+ 216                  cgdnt   Groundnuts for Oil
+ 217                  cgdol   Groundnut Oil
+ 218                  cgdml   Groundnut Meal
+ 219                  crpsd   Rapeseed
+ 220                  crpnt   Rapeseed for Oil
+ 221                  crpol   Rapeseed Oil
+ 222                  crpml   Rapeseed Meal
+ 223                  csoyb   Soybeans
+ 224                  csbnt   Soybeans for Oil
+ 225                  csbol   Soybean Oil
+ 226                  csbml   Soybean Meal
+ 227                  csnfl   Sunflower Seeds
+ 228                  csfnt   Sunflower Seeds for Oil
+ 229                  csfol   Sunflower Oil
+ 230                  csfml   Sunflower Meal
+ 231                  cpalm   Oil Palm Fruit
+ 232                  cplol   Palm Oil
+ 233                  cpkrl   Palm Kernal
+ 234                  cpkol   Palm Kernal Oil
+ 235                  cpkml   Palm Kernal Meal
+ 236                  ctols   Total Other Oilseeds
+ 237                  ctont   Total Other Oilseeds for Oil
+ 238                  ctool   Total Other Oils
+ 239                  ctoml   Total Other Oilseed Meal
+ 240                  ccoco   Cocoa
+ 241                  ccafe   Coffee
+ 242                  ccott   Cotton
+ 243                  cteas   Tea
+ 244                  cothr   Other Crops
+ 245                  cfodr   Fodders
+ 246                  cgrss   Grass
+ 247                  /
+ 248  ;
+ 249   
+ 250  SETS    c_trade(commodity)
+ 251          / cbarl, cmaiz, cmill, crice, csorg, cwhea /
+ 252   
+ 253      c_non_trade(commodity)
+ 254          /  cbeef, cpork, clamb, cpoul, ceggs, cmilk,
+ 255          cocer, ccass, cpota, cswpt, cyams, corat, cbean, cchkp, ccowp, clent,
+ 256          cpigp, copul, cbana, cplnt, csubf, ctemf, cvege, csugc, csugb, csugr, cgrnd,
+ 257          cgdnt, cgdol, cgdml, crpsd, crpnt, crpol, crpml, csoyb, csbnt, csbol, csbml,
+ 258          csnfl, csfnt, csfol, csfml, cpalm, cplol, cpkrl, cpkol, cpkml, ctols, ctont,
+ 259          ctool, ctoml, ccoco, ccafe, ccott, cteas, cothr, cfodr, cgrss/
+ 260   
+ 261  ;
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Costs.gms
+ 263  *** |  (C) 2023 International Food Policy Research Institute (IFPRI)
+ 264  *** |  authors, and contributors. This file is part of the model named
+ 265  *** |  Land Use Model with Environmental Nexus (LUMEN) and is licensed
+ 266  *** |  under AGPL-3.0-or-later. Under Section 7 of AGPL-3.0. You are
+ 267  *** |  granted additional permissions described in the License Exception
+ 268  *** |  version 1.0 (see LICENSE file).
+ 269  *** |  Contact: A.Mishra@cgiar.org
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Land.gms
+ 271  *** |  (C) 2023 International Food Policy Research Institute (IFPRI)
+ 272  *** |  authors, and contributors. This file is part of the model named
+ 273  *** |  Land Use Model with Environmental Nexus (LUMEN) and is licensed
+ 274  *** |  under AGPL-3.0-or-later. Under Section 7 of AGPL-3.0. You are
+ 275  *** |  granted additional permissions described in the License Exception
+ 276  *** |  version 1.0 (see LICENSE file).
+ 277  *** |  Contact: A.Mishra@cgiar.org
+ 278   
+ 279  sets
+ 280   
+ 281      land_class  Land classes from LUH dataset
+ 282          /
+ 283          primf, primn,
+ 284          secdf, secdn,
+ 285          urban,
+ 286          c3ann, c4ann, c3per, c4per, c3nfx,
+ 287          pastr, range,
+ 288          nonforest, agric
+ 289          /
+ 290   
+ 291      land_class_agg(land_class) Subset of land_class
+ 292          /
+ 293          primf, secdf, nonforest, urban, agric, pastr, range
+ 294          /
+ 295   
+ 296      land_agg_map(land_class_agg, land_class)
+ 297          /
+ 298          primf . (primf)
+ 299          secdf . (secdf)
+ 300          nonforest . (primn, secdn)
+ 301          urban . (urban)
+ 302          agric . (c3ann, c4ann, c3per, c4per, c3nfx)
+ 303          pastr . (pastr)
+ 304          range . (range)
+ 305          /
+ 306  ;
+ 307   
+ 308  alias(land_class_agg,land_from);
+ 309  alias(land_class_agg,land_to);
+ 310   
+ 311   
+ 312  SET  land_avl_conversion(land_from)
+ 313          / nonforest, pastr, range /
+ 314  ;
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Other.gms
+ 316  SET   type  "GAMS variable attribute used for the output"
+ 317                  / level, marginal, upper, lower /
+ 318  ;
+ 319   
+ 320  SET   statistical_id  "Which type of statistical indicator"
+ 321                  /mean, median, min, max/
+ 322  ;
+ 323   
+ 324   
+ 325   
+ 326  *#### Time sets
+ 327  sets
+ 328          t_all
+ 329                  / 1980 * 2100 /
+ 330          time_annual(t_all)
+ 331                  / 2015 * 2020 /
+ 332          t(time_annual)
+ 333                  / 2015 * 2016 /
+ 334  ;
+ 335   
+ 336  set  ct(t) Current time period;
+ 337  set pt(t) Previous time period;
+ 338   
+ 339  alias(t,t2);
+ 340   
+ 341   
+ 342  sets
+ 343      hh  Household type
+ 344          / urban, rural /
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Regions.gms
+ 346  *** |  (C) 2023 International Food Policy Research Institute (IFPRI)
+ 347  *** |  authors, and contributors. This file is part of the model named
+ 348  *** |  Land Use Model with Environmental Nexus (LUMEN) and is licensed
+ 349  *** |  under AGPL-3.0-or-later. Under Section 7 of AGPL-3.0. You are
+ 350  *** |  granted additional permissions described in the License Exception
+ 351  *** |  version 1.0 (see LICENSE file).
+ 352  *** |  Contact: A.Mishra@cgiar.org
+ 353   
+ 354  SET   fpu   "IMPACT FPUs"
+ 355                  /
+ 356                  ALB_ALB, ALK_USA, AMA_BOL, AMA_BRA, AMA_COL, AMA_ECU, AMA_PER, AMD_AFG, AMD_TJK,
+ 357                  AMD_TKM, AMD_UZB, AMR_CHM, AMR_RUS, ARA_IRQ, ARK_USA, ARM_ARM, AZE_AZE, BAL_BLT,
+ 358                  BAL_RUS, BLA_RUS, BLA_TUR, BLA_UKR, BLZ_BLZ, BOR_IDN, BOR_MYS, BRT_BGD, BRT_BTN,
+ 359                  BRT_CHM, BRT_IND, CAF_AGO, CAF_CAF, CAF_CMR, CAF_COG, CAF_GAB, CAF_GNQ, CAF_NAM,
+ 360                  CAL_USA, CAN_CAN, CAU_AUS, CAV_IND, CHC_CHL, CHJ_CHM, CHO_IND, CHU_KAZ, CHU_KGZ,
+ 361                  COB_CAN, COB_USA, COL_USA, CON_AGO, CON_CAF, CON_COD, CON_COG, CRB_CRB, CRI_CRI,
+ 362                  CUB_CUB, DAN_AUT, DAN_BGR, DAN_CZE, DAN_DEU, DAN_HRV, DAN_HUN, DAN_MDA, DAN_OBN,
+ 363                  DAN_ROU, DAN_SVK, DAN_SVN, DAN_TUR, DAN_UKR, DNI_BLR, DNI_RUS, DNI_UKR, DOM_DOM,
+ 364                  EAC_BDI, EAC_COD, EAC_RWA, EAC_TZA, EAU_AUS, EGH_IND, ELB_DEU, ELB_DNK, EME_CYP,
+ 365                  EME_EGY, EME_ISR, EME_JOR, EME_LBN, EME_PSE, EME_SYR, EME_TUR, FJI_FJI, FNP_FNP,
+ 366                  GAN_BGD, GAN_CHM, GAN_IND, GAN_NPL, GBA_USA, GEO_GEO, GLA_CAN, GLA_USA, GOD_IND,
+ 367                  GRC_GRC, GRL_GRL, GSA_GSA, GTM_GTM, HAI_CHM, HND_HND, HOA_ETH, HOA_KEN, HOA_SOM,
+ 368                  HTI_HTI, HUA_CHM, HUN_CHM, HWI_USA, IEC_IND, IND_CHM, IND_IND, IND_PAK, INE_IDN,
+ 369                  INW_IDN, IRL_IRL, ISL_ISL, ITA_ITP, JAM_JAM, JAP_JPN, KAL_BWA, KAL_NAM, KAL_ZAF,
+ 370                  KRI_IND, LAJ_CHM, LBA_KAZ, LBO_FRP, LCB_CAF, LCB_CMR, LCB_NER, LCB_NGA, LCB_TCD,
+ 371                  LIM_BWA, LIM_MOZ, LIM_ZAF, LIM_ZWE, LMO_CHM, LMO_MNG, LTZ_KAZ, LUN_IND, MAD_MDG,
+ 372                  MAT_IND, MAU_AUS, MCK_CAN, MEK_KHM, MEK_LAO, MEK_MMR, MEK_THA, MEK_VNM, MHN_IND,
+ 373                  MIM_MEX, MIS_USA, MOU_USA, NAC_DZA, NAC_EGY, NAC_LBY, NAC_TUN, NEB_BRA, NER_RUS,
+ 374                  NIC_NIC, NIG_BEN, NIG_BFA, NIG_CIV, NIG_CMR, NIG_GIN, NIG_MLI, NIG_NER, NIG_NGA,
+ 375                  NIG_TCD, NKP_PRK, NLL_DJI, NLL_EGY, NLL_ERI, NLL_ETH, NLL_SDN, NLL_SSD, NLL_UGA,
+ 376                  NOR_NOR, NWA_MOR, NWA_MRT, NWS_COL, NWS_ECU, NZE_NZL, OAO_OAO, OBB_CHM, OBB_KAZ,
+ 377                  OBB_RUS, ODE_DEU, ODE_POL, ODE_RUS, OHI_USA, OIO_OIO, OPO_OPO, ORA_LSO, ORA_NAM,
+ 378                  ORA_ZAF, ORI_COL, ORI_VEN, PAN_PAN, PAO_PNG, PAR_ARG, PAR_BOL, PAR_BRA, PAR_PRY,
+ 379                  PEC_PER, PHI_PHL, PRT_PRT, RAP_RAP, RHI_BLX, RHI_CHP, RHI_DEU, RHI_FRP, RHI_NLD,
+ 380                  RHO_FRP, RIC_ARG, RIG_MEX, RIG_USA, RRS_RUS, RVE_VEN, RVN_VNM, RWI_CAN, RWI_USA,
+ 381                  SAC_SWZ, SAC_ZAF, SAF_MOZ, SAF_TZA, SAF_ZWE, SAH_DZA, SAH_EGY, SAH_LBY, SAH_MLI,
+ 382                  SAH_MOR, SAH_MRT, SAH_NER, SAH_SDN, SAH_TCD, SAL_ARG, SAN_BRA, SAU_SAU, SAY_IND,
+ 383                  SEI_FRP, SEN_GIN, SEN_MLI, SEN_MRT, SEN_SEN, SEU_USA, SKP_KOR, SLB_SLB, SLV_SLV,
+ 384                  SON_CHM, SPP_SPP, SRL_LKA, SWE_SWE, SYD_KAZ, SYD_KGZ, SYD_TJK, SYD_UZB, TIE_ARG,
+ 385                  TIG_IRN, TIG_IRQ, TIG_SYR, TIG_TUR, TLS_TLS, TMM_BGD, TMM_MMR, TMM_MYS, TMM_OSA,
+ 386                  TMM_THA, TOC_BRA, TWN_CHM, UKP_UKP, UME_MEX, UMO_MNG, UMO_RUS, URA_KAZ, URA_RUS,
+ 387                  URA_TKM, URU_BRA, URU_URY, USN_USA, VOG_RUS, VOT_BEN, VOT_BFA, VOT_CIV, VOT_GHA,
+ 388                  VOT_MLI, VOT_TGO, VUT_VUT, WAC_CIV, WAC_GIN, WAC_GMB, WAC_GNB, WAC_LBR, WAC_SEN,
+ 389                  WAC_SLE, WAI_AFG, WAI_IRN, WAI_PAK, WAI_TKM, WAU_AUS, WGM_USA, YEM_YEM, YEN_RUS,
+ 390                  YHE_CHM, YRD_CHM, YRD_VNM, YUC_MEX, ZAM_AGO, ZAM_BWA, ZAM_COD, ZAM_MOZ, ZAM_MWI,
+ 391                  ZAM_NAM, ZAM_TZA, ZAM_ZMB, ZAM_ZWE, ZHJ_CHM
+ 392                  /
+ 393  ;
+ 394   
+ 395  SET   iso_all "All countries or regions where IMPACT countries exists as it might have geographic overlap dont do ops on this set"
+ 396                  /
+ 397  ABW   "Aruba"
+ 398  AFG   "Afghanistan"
+ 399  AGO   "Angola"
+ 400  AIA   "Anguilla"
+ 401  ALA   "Aland Islands"
+ 402  ALB   "Albania"
+ 403  AND   "Andorra"
+ 404  ARE   "United Arab Emirates"
+ 405  ARG   "Argentina"
+ 406  ARM   "Armenia"
+ 407  ASM   "American Samoa"
+ 408  ATA
+ 409  ATF   "Southern Territories"
+ 410  ATG   "Antigua"
+ 411  AUS   "Australia"
+ 412  AUT   "Austria"
+ 413  AZE   "Azerbaijan"
+ 414  BDI   "Burundi"
+ 415  BEL   "Belgium"
+ 416  BEN   "Benin"
+ 417  BES   "Bonaire, Saint Eustatius, and Saba"
+ 418  BFA   "Burkina Faso"
+ 419  BGD   "Bangladesh"
+ 420  BGR   "Bulgaria"
+ 421  BHR   "Bahrain"
+ 422  BHS   "Bahamas"
+ 423  BIH   "Bosnia-Herzegovina"
+ 424  BLM   "St. Barthélemy"
+ 425  BLR   "Belarus"
+ 426  BLT   "Baltic States"
+ 427  BLX   "Belgium-Luxembourg"
+ 428  BLZ   "Belize"
+ 429  BMU   "Bermuda"
+ 430  BOL   "Bolivia"
+ 431  BRA   "Brazil"
+ 432  BRB   "Barbados"
+ 433  BRN   "Brunei"
+ 434  BTN   "Bhutan"
+ 435  BVT   "Bouvet Island"
+ 436  BWA   "Botswana"
+ 437  CAF   "Central African Republic"
+ 438  CAN   "Canada"
+ 439  CCK   "Keeling Islands"
+ 440  CHE   "Switzerland"
+ 441  CHL   "Chile"
+ 442  CHM   "China Plus"
+ 443  CHN   "China"
+ 444  CHP   "Switzerland Plus"
+ 445  CIV   "Ivory Coast"
+ 446  CMR   "Cameroon"
+ 447  COD   "Democratic Republic of Congo"
+ 448  COG   "Congo"
+ 449  COK   "Cook Islands"
+ 450  COL   "Colombia"
+ 451  COM   "Comoros"
+ 452  CPV   "Cape Verde"
+ 453  CRB   "Other Carribean"
+ 454  CRI   "Costa Rica"
+ 455  CUB   "Cuba"
+ 456  CUW   "Curacao"
+ 457  CXR   "Christmas Island"
+ 458  CYM   "Cayman Islands"
+ 459  CYP   "Cyprus"
+ 460  CZE   "Czechia"
+ 461  DEU   "Germany"
+ 462  DJI   "Djibouti"
+ 463  DMA   "Dominica"
+ 464  DNK   "Denmark"
+ 465  DOM   "Dominican Republic"
+ 466  DZA   "Algeria"
+ 467  ECU   "Ecuador"
+ 468  EGY   "Egypt"
+ 469  ERI   "Eritrea"
+ 470  ESH   "Western Sahara"
+ 471  ESP   "Spain"
+ 472  EST   "Estonia"
+ 473  ETH   "Ethiopia"
+ 474  FIN   "Finland"
+ 475  FJI   "Fiji"
+ 476  FLK   "Falkland Islands"
+ 477  FNP   "Finland Plus"
+ 478  FRA   "France"
+ 479  FRO   "Faroe Islands"
+ 480  FRP   "France Plus"
+ 481  FSM   "Micronesia"
+ 482  GAB   "Gabon"
+ 483  GBR   "Great Britain"
+ 484  GEO   "Georgia"
+ 485  GGY   "Guernsey"
+ 486  GHA   "Ghana"
+ 487  GIB   "Gibraltar"
+ 488  GIN   "Guinea"
+ 489  GLP   "Guadeloupe"
+ 490  GMB   "Gambia"
+ 491  GNB   "Guinea-Bissau"
+ 492  GNQ   "Equatorial Guinea"
+ 493  GRC   "Greece"
+ 494  GRD   "Grenada"
+ 495  GRL   "Greenland"
+ 496  GSA   "Guyanas South America"
+ 497  GTM   "Guatemala"
+ 498  GUF   "French Guiana"
+ 499  GUM   "Guam"
+ 500  GUY   "Guyana"
+ 501  HKG   "Hong Kong"
+ 502  HMD   "Heard and McDonald Islands"
+ 503  HND   "Honduras"
+ 504  HRV   "Croatia"
+ 505  HTI   "Haiti"
+ 506  HUN   "Hungary"
+ 507  IDN   "Indonesia"
+ 508  IMN   "Isle of Man"
+ 509  IND   "India"
+ 510  IOT   "British Indian Ocean Territory"
+ 511  IRL   "Ireland"
+ 512  IRN   "Iran"
+ 513  IRQ   "Iraq"
+ 514  ISL   "Iceland"
+ 515  ISR   "Israel"
+ 516  ITA   "Italy"
+ 517  ITP   "Italy Plus"
+ 518  JAM   "Jamaica"
+ 519  JEY   "Jersey"
+ 520  JOR   "Jordan"
+ 521  JPN   "Japan"
+ 522  KAZ   "Kazakhstan"
+ 523  KEN   "Kenya"
+ 524  KGZ   "Kyrgyzstan"
+ 525  KHM   "Cambodia"
+ 526  KIR   "Kiribati"
+ 527  KNA   "St. Kitts and Nevis"
+ 528  KOR   "South Korea"
+ 529  KWT   "Kuwait"
+ 530  LAO   "Laos"
+ 531  LBN   "Lebanon"
+ 532  LBR   "Liberia"
+ 533  LBY   "Libya"
+ 534  LCA   "St. Lucia"
+ 535  LIE   "Liechtenstein"
+ 536  LKA   "Sri Lanka"
+ 537  LSO   "Lesotho"
+ 538  LTU   "Lithuania"
+ 539  LUX   "Luxembourg"
+ 540  LVA   "Latvia"
+ 541  MAC   "Macao"
+ 542  MAF   "Saint Martin"
+ 543  MAR   "Marocco"
+ 544  MCO   "Monaco"
+ 545  MDA   "Moldova"
+ 546  MDG   "Madagascar"
+ 547  MDV   "Maldives"
+ 548  MEX   "Mexico"
+ 549  MHL   "Marshall Islands"
+ 550  MKD   "Macedonia (FYR)"
+ 551  MLI   "Mali"
+ 552  MLT   "Malta"
+ 553  MMR   "Myanmar"
+ 554  MNE   "Montenegro"
+ 555  MNG   "Mongolia"
+ 556  MNP   "Northern Mariana Islands"
+ 557  MOR   "Morocco Plus"
+ 558  MOZ   "Mozambique"
+ 559  MRT   "Mauritania"
+ 560  MSR   "Montserrat"
+ 561  MTQ   "Martinique"
+ 562  MUS   "Mauritius"
+ 563  MWI   "Malawi"
+ 564  MYS   "Malaysia"
+ 565  MYT   "Mayotte"
+ 566  NAM   "Namibia"
+ 567  NCL   "New Caledonia"
+ 568  NER   "Niger"
+ 569  NFK   "Norfolk Island"
+ 570  NGA   "Nigeria"
+ 571  NIC   "Nicaragua"
+ 572  NIU   "Niue"
+ 573  NLD   "Netherlands"
+ 574  NOR   "Norway"
+ 575  NPL   "Nepal"
+ 576  NRU   "Nauru"
+ 577  NZL   "New Zealand"
+ 578  OAO   "Other Atlantic Ocean"
+ 579  OBN   "Other Balkans"
+ 580  OIO   "Other Indian Ocean"
+ 581  OMN   "Oman"
+ 582  OPO   "Other Pacific Ocean"
+ 583  OSA   "Other Southeast Asia"
+ 584  PAK   "Pakistan"
+ 585  PAN   "Panama"
+ 586  PCN   "Pitcairn"
+ 587  PER   "Peru"
+ 588  PHL   "Philippines"
+ 589  PLW   "Palau"
+ 590  PNG   "Papua New Guinea"
+ 591  POL   "Poland"
+ 592  PRI   "Puerto Rico"
+ 593  PRK   "North Korea"
+ 594  PRT   "Portugal"
+ 595  PRY   "Paraguay"
+ 596  PSE   "Occupied Palestinian Territory"
+ 597  PYF   "French Polynesia"
+ 598  QAT   "Qatar"
+ 599  RAP   "Rest of Arab Peninsula"
+ 600  REU   "Réunion"
+ 601  ROU   "Romania"
+ 602  ROW   "Rest of the World"
+ 603  RUS   "Russia"
+ 604  RWA   "Rwanda"
+ 605  SAU   "Saudi Arabia"
+ 606  SDN   "Sudan"
+ 607  SEN   "Senegal"
+ 608  SGP   "Singapore"
+ 609  SGS   "South Georgia and South Sandwich Islands"
+ 610  SHN   "Saint Helena, Ascension, and Tristan de Cunha"
+ 611  SJM   "Svalbard and Jan Mayen"
+ 612  SLB   "Solomon Islands"
+ 613  SLE   "Sierra Leone"
+ 614  SLV   "El Salvador"
+ 615  SMR   "San Marino"
+ 616  SOM   "Somalia"
+ 617  SPM   "Saint Pierre and Miquelon"
+ 618  SPP   "Spain Plus"
+ 619  SRB   "Serbia"
+ 620  SSD   "South Sudan"
+ 621  STP   "Sao Tome and Principe"
+ 622  SUR   "Suriname"
+ 623  SVK   "Slovakia"
+ 624  SVN   "Slovenia"
+ 625  SWE   "Sweden"
+ 626  SWZ   "Swaziland"
+ 627  SXM   "Sint Maarten"
+ 628  SYC   "Seychelles"
+ 629  SYR   "Syria"
+ 630  TCA   "Turks and Caicos Islands"
+ 631  TCD   "Chad"
+ 632  TGO   "Togo"
+ 633  THA   "Thailand"
+ 634  TJK   "Tajikistan"
+ 635  TKL   "Tokelau"
+ 636  TKM   "Turkmenistan"
+ 637  TLS   "Timor-L’este"
+ 638  TON   "Tonga"
+ 639  TTO   "Trinidad and Tobago"
+ 640  TUN   "Tunisia"
+ 641  TUR   "Turkey"
+ 642  TUV   "Tuvalu"
+ 643  TZA   "Tanzania"
+ 644  UGA   "Uganda"
+ 645  UKP   "Great Britain Plus"
+ 646  UKR   "Ukraine"
+ 647  UMI   "Minor Outlying Islands"
+ 648  URY   "Uruguay"
+ 649  USA   "United States of America"
+ 650  UZB   "Uzbekistan"
+ 651  VAT   "Vatican City"
+ 652  VCT   "St. Vincent and Grenadines"
+ 653  VEN   "Venezuela"
+ 654  VGB   "British Virgin Islands"
+ 655  VIR   "U.S. Virgin Islands"
+ 656  VNM   "Vietnam"
+ 657  VUT   "Vanuatu"
+ 658  WLF   "Wallis and Futuna"
+ 659  WSM   "Samoa"
+ 660  YEM   "Yemen"
+ 661  ZAF   "South Africa"
+ 662  ZMB   "Zambia"
+ 663  ZWE   "Zimbabwe"
+ 664                  /
+ 665  ;
+ 666   
+ 667   
+ 668  SET   iso(iso_all)   "IMPACT Countries"
+ 669                  /
+ 670                  AFG, AGO, ALB, ARG, ARM, AUS, AUT, AZE,
+ 671                  BDI, BEN, BFA, BGD, BGR, BLR, BLT, BLX, BLZ, BOL, BRA, BTN, BWA,
+ 672                  CAF, CAN, CHL, CHM, CHP, CIV, CMR, COD, COG, COL, CRB, CRI, CUB, CYP, CZE,
+ 673                  DEU, DJI, DNK, DOM, DZA,
+ 674                  ECU, EGY, ERI, ETH,
+ 675                  FJI, FNP, FRP,
+ 676                  GAB, GEO, GHA, GIN, GMB, GNB, GNQ, GRC, GRL, GSA, GTM,
+ 677                  HND, HRV, HTI, HUN,
+ 678                  IDN, IND, IRL, IRN, IRQ, ISL, ISR, ITP,
+ 679                  JAM, JOR, JPN,
+ 680                  KAZ, KEN, KGZ, KHM, KOR,
+ 681                  LAO, LBN, LBR, LBY, LKA, LSO,
+ 682                  MDA, MDG, MEX, MLI, MMR, MNG, MOR, MOZ, MRT, MWI, MYS,
+ 683                  NAM, NER, NGA, NIC, NLD, NOR, NPL, NZL,
+ 684                  OAO, OBN, OIO, OPO, OSA,
+ 685                  PAK, PAN, PER, PHL, PNG, POL, PRK, PRT, PRY, PSE,
+ 686                  RAP, ROU, RUS, RWA,
+ 687                  SAU, SDN, SEN, SLB, SLE, SLV, SOM, SPP, SSD, SVK, SVN, SWE, SWZ, SYR,
+ 688                  TCD, TGO, THA, TJK, TKM, TLS, TUN, TUR, TZA,
+ 689                  UGA, UKP, UKR, URY, USA, UZB,
+ 690                  VEN, VNM, VUT,
+ 691                  YEM,
+ 692                  ZAF, ZMB, ZWE
+ 693                  ROW
+ 694                  /
+ 695  ;
+ 696   
+ 697  SET  iso2(iso)    "ISO countries dynamic"     ;
+ 698  SET  fpu2(fpu)    "FPUs dynamic" ;
+ 699   
+ 700  SET   fpu2iso3(iso, fpu)   "FPU to ISO mapping"
+ 701                  /
+ 702                  (AFG) . (AMD_AFG, WAI_AFG)
+ 703                  (AGO) . (CAF_AGO, CON_AGO, ZAM_AGO)
+ 704                  (ALB) . (ALB_ALB)
+ 705                  (ARG) . (PAR_ARG, RIC_ARG, SAL_ARG, TIE_ARG)
+ 706                  (ARM) . (ARM_ARM)
+ 707                  (AUS) . (CAU_AUS, EAU_AUS, MAU_AUS, WAU_AUS)
+ 708                  (AUT) . (DAN_AUT)
+ 709                  (AZE) . (AZE_AZE)
+ 710                  (BDI) . (EAC_BDI)
+ 711                  (BEN) . (NIG_BEN, VOT_BEN)
+ 712                  (BFA) . (NIG_BFA, VOT_BFA)
+ 713                  (BGD) . (BRT_BGD, GAN_BGD, TMM_BGD)
+ 714                  (BGR) . (DAN_BGR)
+ 715                  (BLR) . (DNI_BLR)
+ 716                  (BLT) . (BAL_BLT)
+ 717                  (BLX) . (RHI_BLX)
+ 718                  (BLZ) . (BLZ_BLZ)
+ 719                  (BOL) . (AMA_BOL, PAR_BOL)
+ 720                  (BRA) . (AMA_BRA, NEB_BRA, PAR_BRA, SAN_BRA, TOC_BRA, URU_BRA)
+ 721                  (BTN) . (BRT_BTN)
+ 722                  (BWA) . (KAL_BWA, LIM_BWA, ZAM_BWA)
+ 723                  (CAF) . (CAF_CAF, CON_CAF, LCB_CAF)
+ 724                  (CAN) . (CAN_CAN, COB_CAN, GLA_CAN, MCK_CAN, RWI_CAN)
+ 725                  (CHL) . (CHC_CHL)
+ 726                  (CHM) . (AMR_CHM, BRT_CHM, CHJ_CHM, GAN_CHM, HAI_CHM, HUA_CHM, HUN_CHM, IND_CHM, LAJ_CHM, LMO_CHM, OBB_CHM, SON_CHM, TWN_CHM, YHE_CHM, YRD_CHM, ZHJ_CHM)
+ 727                  (CHP) . (RHI_CHP)
+ 728                  (CIV) . (NIG_CIV, VOT_CIV, WAC_CIV)
+ 729                  (CMR) . (CAF_CMR, LCB_CMR, NIG_CMR)
+ 730                  (COD) . (CON_COD, EAC_COD, ZAM_COD)
+ 731                  (COG) . (CAF_COG, CON_COG)
+ 732                  (COL) . (AMA_COL, NWS_COL, ORI_COL)
+ 733                  (CRB) . (CRB_CRB)
+ 734                  (CRI) . (CRI_CRI)
+ 735                  (CUB) . (CUB_CUB)
+ 736                  (CYP) . (EME_CYP)
+ 737                  (CZE) . (DAN_CZE)
+ 738                  (DEU) . (DAN_DEU, ELB_DEU, ODE_DEU, RHI_DEU)
+ 739                  (DJI) . (NLL_DJI)
+ 740                  (DNK) . (ELB_DNK)
+ 741                  (DOM) . (DOM_DOM)
+ 742                  (DZA) . (NAC_DZA, SAH_DZA)
+ 743                  (ECU) . (AMA_ECU, NWS_ECU)
+ 744                  (EGY) . (EME_EGY, NAC_EGY, NLL_EGY, SAH_EGY)
+ 745                  (ERI) . (NLL_ERI)
+ 746                  (ETH) . (HOA_ETH, NLL_ETH)
+ 747                  (FJI) . (FJI_FJI)
+ 748                  (FNP) . (FNP_FNP)
+ 749                  (FRP) . (LBO_FRP, RHI_FRP, RHO_FRP, SEI_FRP)
+ 750                  (GAB) . (CAF_GAB)
+ 751                  (GEO) . (GEO_GEO)
+ 752                  (GHA) . (VOT_GHA)
+ 753                  (GIN) . (NIG_GIN, SEN_GIN, WAC_GIN)
+ 754                  (GMB) . (WAC_GMB)
+ 755                  (GNB) . (WAC_GNB)
+ 756                  (GNQ) . (CAF_GNQ)
+ 757                  (GRC) . (GRC_GRC)
+ 758                  (GRL) . (GRL_GRL)
+ 759                  (GSA) . (GSA_GSA)
+ 760                  (GTM) . (GTM_GTM)
+ 761                  (HND) . (HND_HND)
+ 762                  (HRV) . (DAN_HRV)
+ 763                  (HTI) . (HTI_HTI)
+ 764                  (HUN) . (DAN_HUN)
+ 765                  (IDN) . (BOR_IDN, INE_IDN, INW_IDN)
+ 766                  (IND) . (BRT_IND, CAV_IND, CHO_IND, EGH_IND, GAN_IND, GOD_IND, IEC_IND, IND_IND, KRI_IND, LUN_IND, MAT_IND, MHN_IND, SAY_IND)
+ 767                  (IRL) . (IRL_IRL)
+ 768                  (IRN) . (TIG_IRN, WAI_IRN)
+ 769                  (IRQ) . (ARA_IRQ, TIG_IRQ)
+ 770                  (ISL) . (ISL_ISL)
+ 771                  (ISR) . (EME_ISR)
+ 772                  (ITP) . (ITA_ITP)
+ 773                  (JAM) . (JAM_JAM)
+ 774                  (JOR) . (EME_JOR)
+ 775                  (JPN) . (JAP_JPN)
+ 776                  (KAZ) . (CHU_KAZ, LBA_KAZ, LTZ_KAZ, OBB_KAZ, SYD_KAZ, URA_KAZ)
+ 777                  (KEN) . (HOA_KEN)
+ 778                  (KGZ) . (CHU_KGZ, SYD_KGZ)
+ 779                  (KHM) . (MEK_KHM)
+ 780                  (KOR) . (SKP_KOR)
+ 781                  (LAO) . (MEK_LAO)
+ 782                  (LBN) . (EME_LBN)
+ 783                  (LBR) . (WAC_LBR)
+ 784                  (LBY) . (NAC_LBY, SAH_LBY)
+ 785                  (LKA) . (SRL_LKA)
+ 786                  (LSO) . (ORA_LSO)
+ 787                  (MDA) . (DAN_MDA)
+ 788                  (MDG) . (MAD_MDG)
+ 789                  (MEX) . (MIM_MEX, RIG_MEX, UME_MEX, YUC_MEX)
+ 790                  (MLI) . (NIG_MLI, SAH_MLI, SEN_MLI, VOT_MLI)
+ 791                  (MMR) . (MEK_MMR, TMM_MMR)
+ 792                  (MNG) . (LMO_MNG, UMO_MNG)
+ 793                  (MOR) . (NWA_MOR, SAH_MOR)
+ 794                  (MOZ) . (LIM_MOZ, SAF_MOZ, ZAM_MOZ)
+ 795                  (MRT) . (NWA_MRT, SAH_MRT, SEN_MRT)
+ 796                  (MWI) . (ZAM_MWI)
+ 797                  (MYS) . (BOR_MYS, TMM_MYS)
+ 798                  (NAM) . (CAF_NAM, KAL_NAM, ORA_NAM, ZAM_NAM)
+ 799                  (NER) . (LCB_NER, NIG_NER, SAH_NER)
+ 800                  (NGA) . (LCB_NGA, NIG_NGA)
+ 801                  (NIC) . (NIC_NIC)
+ 802                  (NLD) . (RHI_NLD)
+ 803                  (NOR) . (NOR_NOR)
+ 804                  (NPL) . (GAN_NPL)
+ 805                  (NZL) . (NZE_NZL)
+ 806                  (OAO) . (OAO_OAO)
+ 807                  (OBN) . (DAN_OBN)
+ 808                  (OIO) . (OIO_OIO)
+ 809                  (OPO) . (OPO_OPO)
+ 810                  (OSA) . (TMM_OSA)
+ 811                  (PAK) . (IND_PAK, WAI_PAK)
+ 812                  (PAN) . (PAN_PAN)
+ 813                  (PER) . (AMA_PER, PEC_PER)
+ 814                  (PHL) . (PHI_PHL)
+ 815                  (PNG) . (PAO_PNG)
+ 816                  (POL) . (ODE_POL)
+ 817                  (PRK) . (NKP_PRK)
+ 818                  (PRT) . (PRT_PRT)
+ 819                  (PRY) . (PAR_PRY)
+ 820                  (PSE) . (EME_PSE)
+ 821                  (RAP) . (RAP_RAP)
+ 822                  (ROU) . (DAN_ROU)
+ 823                  (RUS) . (AMR_RUS, BAL_RUS, BLA_RUS, DNI_RUS, NER_RUS, OBB_RUS, ODE_RUS, RRS_RUS, UMO_RUS, URA_RUS, VOG_RUS, YEN_RUS)
+ 824                  (RWA) . (EAC_RWA)
+ 825                  (SAU) . (SAU_SAU)
+ 826                  (SDN) . (NLL_SDN, SAH_SDN)
+ 827                  (SEN) . (SEN_SEN, WAC_SEN)
+ 828                  (SLB) . (SLB_SLB)
+ 829                  (SLE) . (WAC_SLE)
+ 830                  (SLV) . (SLV_SLV)
+ 831                  (SOM) . (HOA_SOM)
+ 832                  (SPP) . (SPP_SPP)
+ 833                  (SSD) . (NLL_SSD)
+ 834                  (SVK) . (DAN_SVK)
+ 835                  (SVN) . (DAN_SVN)
+ 836                  (SWE) . (SWE_SWE)
+ 837                  (SWZ) . (SAC_SWZ)
+ 838                  (SYR) . (EME_SYR, TIG_SYR)
+ 839                  (TCD) . (LCB_TCD, NIG_TCD, SAH_TCD)
+ 840                  (TGO) . (VOT_TGO)
+ 841                  (THA) . (MEK_THA, TMM_THA)
+ 842                  (TJK) . (AMD_TJK, SYD_TJK)
+ 843                  (TKM) . (AMD_TKM, URA_TKM, WAI_TKM)
+ 844                  (TLS) . (TLS_TLS)
+ 845                  (TUN) . (NAC_TUN)
+ 846                  (TUR) . (BLA_TUR, DAN_TUR, EME_TUR, TIG_TUR)
+ 847                  (TZA) . (EAC_TZA, SAF_TZA, ZAM_TZA)
+ 848                  (UGA) . (NLL_UGA)
+ 849                  (UKP) . (UKP_UKP)
+ 850                  (UKR) . (BLA_UKR, DAN_UKR, DNI_UKR)
+ 851                  (URY) . (URU_URY)
+ 852                  (USA) . (ALK_USA, ARK_USA, CAL_USA, COB_USA, COL_USA, GBA_USA, GLA_USA, HWI_USA, MIS_USA, MOU_USA, OHI_USA, RIG_USA, RWI_USA, SEU_USA, USN_USA, WGM_USA)
+ 853                  (UZB) . (AMD_UZB, SYD_UZB)
+ 854                  (VEN) . (ORI_VEN, RVE_VEN)
+ 855                  (VNM) . (MEK_VNM, RVN_VNM, YRD_VNM)
+ 856                  (VUT) . (VUT_VUT)
+ 857                  (YEM) . (YEM_YEM)
+ 858                  (ZAF) . (KAL_ZAF, LIM_ZAF, ORA_ZAF, SAC_ZAF)
+ 859                  (ZMB) . (ZAM_ZMB)
+ 860                  (ZWE) . (LIM_ZWE, SAF_ZWE, ZAM_ZWE)
+ 861                  /
+ 862  ;
+ 863   
+ 864  * Initialize dynamic sets
+ 865  fpu2(fpu) = yes;
+ 866  iso2(iso) = yes;
+ 867   
+ 868   
+ 869  alias(iso_all, reporter);
+ 870  alias(iso_all, partner);
+ 871  alias(iso_all, importer);
+ 872  alias(iso_all, exporter);
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Mappings.gms
+ 874  SET activity2commodity(activity, commodity)  "Activity to commodity mapping"
+ 875                  /
+ 876                  (jbana)         .        (cbana)
+ 877                  (jbarl)         .        (cbarl)
+ 878                  (jbean)         .        (cbean)
+ 879                  (jbeef)         .        (cbeef)
+ 880                  (jcafe)         .        (ccafe)
+ 881                  (jcass)         .        (ccass)
+ 882                  (jchkp)         .        (cchkp)
+ 883                  (jcoco)         .        (ccoco)
+ 884                  (jcott)         .        (ccott)
+ 885                  (jcowp)         .        (ccowp)
+ 886                  (jeggs)         .        (ceggs)
+ 887                  (jfodr)         .        (cfodr)
+ 888                  (jgdol)         .        (cgdml)
+ 889                  (jgdoln)        .        (cgdml)
+ 890                  (jgdolt)        .        (cgdml)
+ 891                  (jgdnt)         .        (cgdnt)
+ 892                  (jgdol)         .        (cgdol)
+ 893                  (jgdoln)        .        (cgdol)
+ 894                  (jgdolt)        .        (cgdol)
+ 895                  (jgrnd)         .        (cgrnd)
+ 896                  (jpstr)         .        (cgrss)
+ 897                  (jlamb)         .        (clamb)
+ 898                  (jlent)         .        (clent)
+ 899                  (jmaiz)         .        (cmaiz)
+ 900                  (jmilk)         .        (cmilk)
+ 901                  (jmill)         .        (cmill)
+ 902                  (jocer)         .        (cocer)
+ 903                  (jopul)         .        (copul)
+ 904                  (jorat)         .        (corat)
+ 905                  (jothr)         .        (cothr)
+ 906                  (jpalm)         .        (cpalm)
+ 907                  (jpigp)         .        (cpigp)
+ 908                  (jpkol)         .        (cpkml)
+ 909                  (jpkol)         .        (cpkol)
+ 910                  (jplol)         .        (cpkrl)
+ 911                  (jplnt)         .        (cplnt)
+ 912                  (jplol)         .        (cplol)
+ 913                  (jpork)         .        (cpork)
+ 914                  (jpota)         .        (cpota)
+ 915                  (jpoul)         .        (cpoul)
+ 916                  (jrice)         .        (crice)
+ 917                  (jrice2)        .        (crice)
+ 918                  (jrice3)        .        (crice)
+ 919                  (jrpol)         .        (crpml)
+ 920                  (jrpoln)        .        (crpml)
+ 921                  (jrpolt)        .        (crpml)
+ 922                  (jrpnt)         .        (crpnt)
+ 923                  (jrpol)         .        (crpol)
+ 924                  (jrpoln)        .        (crpol)
+ 925                  (jrpolt)        .        (crpol)
+ 926                  (jrpsd)         .        (crpsd)
+ 927                  (jsbol)         .        (csbml)
+ 928                  (jsboln)        .        (csbml)
+ 929                  (jsbolt)        .        (csbml)
+ 930                  (jsbnt)         .        (csbnt)
+ 931                  (jsbol)         .        (csbol)
+ 932                  (jsboln)        .        (csbol)
+ 933                  (jsbolt)        .        (csbol)
+ 934                  (jsfol)         .        (csfml)
+ 935                  (jsfoln)        .        (csfml)
+ 936                  (jsfolt)        .        (csfml)
+ 937                  (jsfnt)         .        (csfnt)
+ 938                  (jsfol)         .        (csfol)
+ 939                  (jsfoln)        .        (csfol)
+ 940                  (jsfolt)        .        (csfol)
+ 941                  (jsnfl)         .        (csnfl)
+ 942                  (jsorg)         .        (csorg)
+ 943                  (jsoyb)         .        (csoyb)
+ 944                  (jsubf)         .        (csubf)
+ 945                  (jsugb)         .        (csugb)
+ 946                  (jsugc)         .        (csugc)
+ 947                  (jsugr)         .        (csugr)
+ 948                  (jsugrb)        .        (csugr)
+ 949                  (jsugrc)        .        (csugr)
+ 950                  (jswpt)         .        (cswpt)
+ 951                  (jteas)         .        (cteas)
+ 952                  (jtemf)         .        (ctemf)
+ 953                  (jtols)         .        (ctols)
+ 954                  (jtool)         .        (ctoml)
+ 955                  (jtooln)        .        (ctoml)
+ 956                  (jtoolt)        .        (ctoml)
+ 957                  (jtont)         .        (ctont)
+ 958                  (jtool)         .        (ctool)
+ 959                  (jtooln)        .        (ctool)
+ 960                  (jtoolt)        .        (ctool)
+ 961                  (jvege)         .        (cvege)
+ 962                  (jwhea)         .        (cwhea)
+ 963                  (jyams)         .        (cyams)
+ 964                  /
+ 965  ;
+ 966   
+ 967   
+ 968  ;
+ 969   
+ 970   
+ 972  PUT_UTILITY 'msglog' / 'MODEL RUN' / ;
+ 973   
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Core\Parameters.gms
+ 975   
+ 976   
+ 977   
+ 978  *#################################################################
+ 979  * SSP
+ 980  *#################################################################
+ 981  parameter
+ 982  pm_pop(t_all, iso, hh)          Population by household (million)
+ 983  pm_gdp(t_all, iso, hh)          GDP by household (billion USD)
+ 984  ;
+ 985   
+ 986   
+ 987   
+ 988  *#################################################################
+ 989  *  Land
+ 990  *#################################################################
+ 991  parameters
+ 992  p10_luh_init(fpu, land_class_agg)   Land use initialization dataset (000 ha)
+ 993  p10_land_cost(fpu, land_class_agg)  Cost of land use (USD per ha)
+ 994  pcm_land(fpu, land_class_agg)        Land use from previous year (000 ha)
+ 995  p10_land_glo(t, land_class_agg)     Global land pool (000 ha)
+ 996  p10_land_total(t)                   Global land total (000 ha)
+ 997  ;
+ 998   
+ 999   
+1000   
+1001  *#################################################################
+1002  *  Land conversion
+1003  *#################################################################
+1004  parameters
+1005  p11_conversion_cost(fpu, land_class_agg)       Additional costs for lu transitions (USD per ha)
+1006  ;
+1007  scalars
+1008  s11_cost_balance Artificial cost for balance variable (USD05MER per ha) / 1e+04 /
+1009  ;
+1010   
+1011   
+1012   
+1013  *#################################################################
+1014  *  Crop
+1015  *#################################################################
+1016  parameters
+1017  p21_crop_area_agg(fpu)                  Aggregated area for crops (000 ha)
+1018  p21_initial_crop(fpu, activity, irr)    Initial distribution of crop (1)
+1019  pm_crop_area(fpu, activity_crop, irr)   Agricultural production area from previous year (000 ha)
+1020  ;
+1021   
+1022   
+1023   
+1024  *#################################################################
+1025  *  Production
+1026  *#################################################################
+1027  scalar
+1028  s31_seed
+1029  ;
+1030   
+1031  parameters
+1032  p31_crop_production_cost(fpu, activity_crop)            Unit production cost for crops(USD per tDM)
+1033  p31_crop_yield(t, fpu, activity_crop, irr)              Time specific optimized crop yiels (tDM per ha)
+1034  p31_iomat(iso, commodity, activity_crop)                Dummy paraeter for testing (1)
+1035  p31_iomat_fpu(fpu, activity, commodity)                 Dummy par (1)
+1036  f31_jcratio(iso, activity, commodity)                 Activity commodity ratio (1)
+1037  f31_iomat(iso, commodity, activity)                   Input output matrix (1)
+1038  f31_IO_combined(iso, activity, commodity)  Combined Input output matrix (1)
+1039  f31_multicropping(fpu, activity, irr);
+1040   
+1041  ;
+1042   
+1043   
+1044   
+1045   
+1046   
+1047  *#################################################################
+1048  *  Demand
+1049  *#################################################################
+1050  parameter
+1051  p35_commodity_demand(t_all, iso, commodity)                 Commodity demand (000 tDM)
+1052  p35_commodity_demand_agriculture(t_all, iso, commodity)     Commodity demand from agriculural commodities (000 tDM)
+1053  p35_demand_change(t_all, iso, commodity, hh)                Income change (000 USD)
+1054  ;
+1055   
+1056   
+1057   
+1058  *#################################################################
+1059  *  Trade
+1060  *#################################################################
+1061  parameters
+1062  i41_global_imports(t_all, commodity, reporter)       Global imports from FAO food balance (000 tDM)
+1063  i41_global_exports(t_all, commodity, reporter)       Global exports from FAO food balance (000 tDM)
+1064  f41_selfsuff(t_all, iso_all, commodity) "self suff ratio (1)"
+1065  f41_export_ratio(t_all, iso_all, commodity) Export ratio (1)
+1066  f41_city_time(fpu,statistical_id)  Estimated travel time in minutes to the nearest urban area in 2015 (minutes)
+1067  f41_port_time(fpu,statistical_id)  Estimated travel time in minutes to the nearest port in 2015 (minutes)
+1068  f41_export_qty(t_all,reporter, commodity, partner)  Export quantity (tonne)
+1069  f41_import_qty(t_all,reporter, commodity, partner)  Bilateral trade quantity (tonne)
+1070  f41_transport_costs(commodity)    Cost of Transportation (USD per tDM per min)
+1071   
+1072   
+1073  ;
+1074   
+1075  *#################################################################
+1076  *  Cost
+1077  *#################################################################
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Core\DataLoad.gms
+GDXIN   C:\00_MyGAMS\LUMEN_Thanasis\Data\DATA_ALL.gdx
+--- LOAD  f31_jcratio = 1:f31_jcratio
+--- LOAD  f31_iomat = 2:f31_iomat
+--- LOAD  f31_IO_combined = 3:f31_IO_combined
+--- LOAD  f31_multicropping = 4:f31_multicropping
+--- LOAD  f41_selfsuff = 5:f41_selfsuff
+--- LOAD  f41_export_ratio = 6:f41_export_ratio
+--- LOAD  f41_city_time = 7:f41_city_time
+--- LOAD  f41_port_time = 8:f41_port_time
+--- LOAD  f41_export_qty = 9:f41_export_qty
+--- LOAD  f41_import_qty = 10:f41_import_qty
+INCLUDE    C:\00_MyGAMS\LUMEN_Thanasis\Code\Core\Model.gms
+1092  *#################################################################
+1093  *  Land
+1094  *#################################################################
+1095  positive variables
+1096  vm_land(fpu, land_class_agg)        Land use variable (000 ha)
+1097  vm_land_cost(fpu)                  Cost of land use (000 USD)
+1098  ;
+1099   
+1100  equations
+1101  q10_land(fpu)                       Equation for land use (000 ha)
+1102  q10_land_cost(fpu)                  Cost of land use (USD per ha)
+1103  ;
+1104   
+1105  q10_land(fpu2) ..
+1106                  sum(land_class_agg, vm_land(fpu2, land_class_agg))
+1107                  =e=
+1108                  sum(land_class_agg, p10_luh_init(fpu2, land_class_agg))
+1109                  ;
+1110   
+1111  q10_land_cost(fpu2) ..
+1112                  vm_land_cost(fpu2)
+1113                  =e=
+1114                  sum(land_class_agg, vm_land(fpu2, land_class_agg) * p10_land_cost(fpu2, land_class_agg))
+1115   
+1116   
+1117   
+1118   
+1119   
+1120  *#################################################################
+1121  *  Land conversion
+1122  *#################################################################
+1123  positive variables
+1124  v11_landexpansion(fpu, land_class_agg)               Land expansion (mio. ha)
+1125  v11_landreduction(fpu, land_class_agg)               Land reduction (mio. ha)
+1126  vm_cost_land_transition(fpu)                        Costs for lu transitions (mio. USD05MER per yr)
+1127  v11_lu_transitions(fpu, land_from,land_to)           Land transitions between time steps (mio. ha)
+1128  v11_balance_positive(fpu)                           Balance variable for land transitions (mio. ha)
+1129  v11_balance_negative(fpu)                           Balance variable for land transitions (mio. ha)
+1130  v11_landreduction_cost(fpu, land_class_agg)     Additional costs for lu transitions (000 USD per yr)
+1131  ;
+1132   
+1133  equations
+1134  q11_transition_matrix(fpu)                      Land transition constraint cell area (000 ha)
+1135  q11_transition_to(fpu,land_to)                  Land transition constraint to (000 ha)
+1136  q11_transition_from(fpu,land_from)              Land transition constraint from (000 ha)
+1137  q11_landexpansion(fpu,land_to)                  Land expansion constraint (000 ha)
+1138  q11_landreduction(fpu,land_from)                Land reduction constraint (000 ha)
+1139  q11_cost(fpu)                                   Costs for lu transitions (000 USD per yr)
+1140  q11_cost_reduction(fpu, land_class_agg)    Additional costs for lu transitions (000 USD per yr)
+1141  ;
+1142   
+1143  * Current year's total land use is equal to last year's land use +/- the change
+1144  *** THANASIS: what is the meaning of the balance? shouldn't it go to the RHS?
+1145  q11_transition_matrix(fpu2) ..
+1146                  sum((land_from,land_to), v11_lu_transitions(fpu2,land_from,land_to))
+1147                  +
+1148                  v11_balance_positive(fpu2)
+1149                  -
+1150                  v11_balance_negative(fpu2)
+1151                  =e=
+1152                  sum(land_class_agg, pcm_land(fpu2,land_class_agg))
+1153                  ;
+1154   
+1155   
+1156  q11_transition_to(fpu2,land_to) ..
+1157                 sum(land_from, v11_lu_transitions(fpu2,land_from,land_to))
+1158                 =e=
+1159                 vm_land(fpu2,land_to)
+1160                 ;
+1161   
+1162  q11_transition_from(fpu2,land_from) ..
+1163                 sum(land_to, v11_lu_transitions(fpu2,land_from,land_to))
+1164                 =e=
+1165                 pcm_land(fpu2,land_from)
+1166                 ;
+1167   
+1168  q11_landexpansion(fpu2,land_to) ..
+1169                 v11_landexpansion(fpu2,land_to)
+1170                 =e=
+1171                 sum(land_from$(not sameas(land_from,land_to)), v11_lu_transitions(fpu2,land_from,land_to));
+1172   
+1173  q11_landreduction(fpu2,land_from) ..
+1174                 v11_landreduction(fpu2,land_from)
+1175                 =e=
+1176                 sum(land_to$(not sameas(land_from,land_to)), v11_lu_transitions(fpu2,land_from,land_to));
+1177   
+1178  *' Small costs of 1 $ per ha on gross land-use change avoid unrealistic patterns in the land_class_agg transition matrix
+1179   
+1180  q11_cost(fpu2) ..
+1181                  vm_cost_land_transition(fpu2)
+1182                  =e=
+1183                  sum(land_class_agg, v11_landexpansion(fpu2,land_class_agg) + v11_landreduction(fpu2,land_class_agg)) * 1
+1184                  +
+1185                  (v11_balance_positive(fpu2) + v11_balance_negative(fpu2))
+1186                  *
+1187                  s11_cost_balance
+1188                  ;
+1189   
+1190  q11_cost_reduction(fpu2, land_class_agg) ..
+1191                  v11_landreduction_cost(fpu2, land_class_agg)
+1192                  =e=
+1193                  v11_landreduction(fpu2, land_class_agg) * p11_conversion_cost(fpu2, land_class_agg)
+1194                  ;
+1195   
+1196   
+1197  *#################################################################
+1198  *  Crop
+1199  *#################################################################
+1200  positive variables
+1201  vm_crop_area(fpu, activity_crop, irr)   Agricultural production area (000 ha)
+1202  ;
+1203   
+1204  equations
+1205  q21_cropland_change(fpu)                Change in cropland (000 ha)
+1206  q21_cropland_area(fpu)                  Cropland allocation (000 ha)
+1207  ;
+1208   
+1209  * THANASIS: I assume agric land growth (5%) is a placeholder for now?
+1210  q21_cropland_change(fpu2) ..
+1211                      vm_land(fpu2, "agric")
+1212                      =e=
+1213                      pcm_land(fpu2, "agric") * 1.05
+1214                      ;
+1215   
+1216  * Ag land balance: sum of crop-speific area cannot exceed total ag land
+1217  q21_cropland_area(fpu2) ..
+1218                      sum((activity_crop, irr_agr),
+1219                      vm_crop_area(fpu2, activity_crop, irr_agr))
+1220                      =e=
+1221                      vm_land(fpu2, "agric")
+1222                      ;
+1223   
+1224   
+1225   
+1226  *#################################################################
+1227  *  Production
+1228  *#################################################################
+1229  positive variables
+1230  vm_crop_yield(fpu, activity_crop, irr)                      Crop production yield (tDM per ha)
+1231  vm_crop_production(fpu, activity_crop)                      Crop production area (000 tDM)
+1232  vm_commodity_production(iso, commodity)                    Commodity production (000 tDM)
+1233  vm_crop_production_cost(fpu, activity_crop)                 Crop production cost (000 USD)
+1234  vm_commodity_production_free(iso, commodity)               Commodity production from heaven free variable (000 tDM)
+1235  v31_production(fpu, activity_crop, commodity)               Commodity production from activities (000 tDM)
+1236  ;
+1237   
+1238  equations
+1239  q31_crop_production(fpu, activity_crop)                     Crop production (000 tDM)
+1240  q31_commodity_production(iso, commodity)                    commodity production (000 tDM)
+1241  q31_crop_production_cost(fpu, activity_crop)                Crop production cost (000 USD)
+1242  q31_production(fpu, activity_crop, commodity)              commodity production from activities (000 tDM)
+1243  ;
+1244   
+1245   
+1246  * Total crop production costs
+1247  q31_crop_production_cost(fpu2, activity_crop) ..
+1248                      vm_crop_production_cost(fpu2, activity_crop)
+1249                      =e=
+1250                      vm_crop_production(fpu2, activity_crop) * p31_crop_production_cost(fpu2, activity_crop)
+1251                      ;
+1252   
+1253  * Total production per crop = area*yields
+1254  q31_crop_production(fpu2, activity_crop) ..
+1255                      vm_crop_production(fpu2, activity_crop)
+1256                      =e=
+1257                      sum(irr_agr,
+1258                          vm_crop_yield(fpu2, activity_crop, irr_agr)
+1259                          *
+1260                          vm_crop_area(fpu2, activity_crop, irr_agr)
+1261                          *
+1262                          f31_multicropping(fpu2, activity_crop, irr_agr)
+1263                          )
+1264                      ;
+1265   
+1266  q31_production(fpu2, activity_crop, commodity)$(p31_iomat_fpu(fpu2, activity_crop, commodity)) ..
+1267                      v31_production(fpu2, activity_crop, commodity)
+1268                      =e=
+1269                      vm_crop_production(fpu2, activity_crop)
+1270                      /
+1271                      sum(fpu2iso3(iso, fpu2), f31_IO_combined(iso, activity_crop, commodity))
+1272                      ;
+1273   
+1274  q31_commodity_production(iso, commodity) ..
+1275                                          vm_commodity_production(iso, commodity)
+1276                                          =e=
+1277                                          sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
+1278                                          v31_production(fpu2, activity_crop, commodity))
+1279                                          ;
+1280   
+1281   
+1282   
+1283   
+1284  *#################################################################
+1285  *  Demand
+1286  *#################################################################
+1287  equations
+1288  q35_commodity_demand(iso, commodity)                    Commodity demand (000 tDM)
+1289  ;
+1290   
+1291  q35_commodity_demand(iso, commodity) ..
+1292                                          sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
+1293                                          v31_production(fpu2, activity_crop, commodity))
+1294                                          +
+1295                                          vm_commodity_production_free(iso, commodity)
+1296                                          =e=
+1297                                          sum(ct, p35_commodity_demand_agriculture(ct, iso, commodity))
+1298                                          ;
+1299   
+1300   
+1301  *#################################################################
+1302  *  Trade
+1303  *#################################################################
+1304  positive variables
+1305  v41_global_trade_pool(iso, commodity)   Global trade pool from exporting countries (000 tDM)
+1306  v41_trade_cost(iso, commodity)          Cost of trade to nearest city (000 USD)
+1307  v41_trade_supply(iso, commodity)        Global trade pool in self sufficiency pool (000 tDM)
+1308  ;
+1309   
+1310  equations
+1311  q41_trade_glo(commodity)                Global trade akin to commodity production (000 tDM)
+1312  q41_global_trade_pool(iso, commodity)   Global trade pool from exporting countries (000 tDM)
+1313  q41_trade_cost(iso, commodity)          Cost of trade to nearest city (000 USD)
+1314  q41_global_trade(iso, commodity)        Global trade to hypothetical global warehouse (000 tDM)
+1315  ;
+1316   
+1317  *' Ensuring that global supply is larger or equal to demand.
+1318  *' Production can be freely allocated globally.
+1319   
+1320  q41_trade_glo(commodity)..
+1321    sum(iso, vm_commodity_production(iso, commodity) + v41_trade_supply(iso, commodity))
+1322    =g=
+1323    sum((ct, iso), p35_commodity_demand_agriculture(ct, iso, commodity))
+1324    ;
+1325   
+      q41_global_trade_pool(iso, commodity)$[sum(ct, f41_export_ratio(ct, iso, commodity)>0]..
+          v41_global_trade_pool(iso, commodity)
+          =e=
+          vm_commodity_production(iso, commodity) * sum(ct, f41_export_ratio(ct, iso, commodity))
+          ;
+       
+      q41_global_trade(iso, commodity)$[sum(ct, f41_selfsuff(ct, iso, commodity)) < 1]..
+          v41_trade_supply(iso, commodity)
+          =e=
+          v41_global_trade_pool(iso, commodity) * sum(ct, 1 - f41_selfsuff(ct, iso, commodity))
+          ;
+       
+      q41_trade_cost(iso, commodity)..
+          v41_trade_cost(iso, commodity)
+          =e=
+          v41_trade_supply(iso, commodity) * sum(fpu2iso3(iso, fpu2), f41_city_time(fpu2,"median"))
+          ;
+1345   
+1346  q41_global_trade_pool(iso, c_trade)$[sum(ct, f41_export_ratio(ct, iso, c_trade))>0]..
+1347      v41_global_trade_pool(iso, c_trade)
+1348      =e=
+1349      vm_commodity_production(iso, c_trade) * sum(ct, f41_export_ratio(ct, iso, c_trade))
+1350      ;
+1351   
+1352  q41_global_trade(iso, c_trade)$[sum(ct, f41_selfsuff(ct, iso, c_trade)) < 1]..
+1353      v41_trade_supply(iso, c_trade)
+1354      =e=
+1355      v41_global_trade_pool(iso, c_trade) * sum(ct, 1 - f41_selfsuff(ct, iso, c_trade))
+1356      ;
+1357   
+      *' Excess production
+       
+      q41_export_production(iso, c_trade)$[sum(ct, f41_selfsuff(ct, iso, c_trade)) > 1]..
+          v41_export_production(iso, c_trade)
+          =e=
+          vm_commodity_production(iso, c_trade) * * sum(ct, f41_selfsuff(ct, iso, c_trade) - 1)
+          ;
+      *' Trade demand
+       
+      q41_import_demand(iso, c_trade)$[sum(ct, f41_selfsuff(ct, iso, c_trade)) < 1]..
+          v41_import_demand(iso, c_trade)
+          =e=
+          vm_commodity_production(iso, c_trade) * * sum(ct, 1 - f41_selfsuff(ct, iso, c_trade))
+          ;
+1374   
+1375  *' Trade cost
+1376   
+1377  q41_trade_cost(iso, c_trade)..
+1378      v41_trade_cost(iso, c_trade)
+1379      =e=
+1380      v41_trade_supply(iso, c_trade) * sum(fpu2iso3(iso, fpu2), f41_city_time(fpu2,"median"))
+1381      ;
+1382   
+1383   
+1384   
+1385  *#################################################################
+1386  *  Cost
+1387  *#################################################################
+1388  variables
+1389  vm_cost_glo         Global level LU cost (billion USD)
+1390  v89_cost_fpu(fpu)   Fpu level cost (000 USD)
+1391  v89_cost_iso(iso)   iso level cost (000 USD)
+1392  ;
+1393   
+1394  equations
+1395  q89_cost_glo                    Global level LU cost (000 USD)
+1396  q89_cost_fpu(fpu)               Fpu level cost (000 USD)
+1397  q89_cost_iso(iso)               iso level cost (000 USD)
+1398  ;
+1399   
+1400  q89_cost_glo ..
+1401                      vm_cost_glo
+1402                      =e=
+1403                      sum(fpu2, v89_cost_fpu(fpu2)) / 1e6
+1404                      +
+1405                      sum(iso, v89_cost_iso(iso)) / 1e6
+1406                      ;
+1407   
+1408  q89_cost_fpu(fpu2) ..
+1409                      v89_cost_fpu(fpu2)
+1410                      =e=
+1411                      vm_land_cost(fpu2)
+1412                      +
+1413                      vm_cost_land_transition(fpu2)
+1414                      +
+1415                      sum(activity_crop, vm_crop_production_cost(fpu2, activity_crop))
+1416                      ;
+1417   
+1418  q89_cost_iso(iso) ..
+1419                      v89_cost_iso(iso)
+1420                      =e=
+1421                      sum(commodity, vm_commodity_production_free(iso, commodity) * 1e5)
+1422                      +
+1423                      sum(commodity, v41_trade_cost(iso, commodity))
+1424                      ;
+1425   
+1427   
+STOP C:\00_MyGAMS\LUMEN_Thanasis\Code\main.gms
+GAMS 43.2.0  859d62d5 May 4, 2023           WEX-WEI x86 64bit/MS Windows - 02/14/24 15:48:27 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\00_MyGAMS\LUMEN_Thanasis\Code\main.gms
+     2       11 INCLUDE        1      11  .C:\00_MyGAMS\LUMEN_Thanasis\Code\config.gms
+     3       32 INCLUDE        1      25  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Activities.gms
+     4      180 INCLUDE        1      26  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Commodities.gms
+     5      262 INCLUDE        1      27  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Costs.gms
+     6      270 INCLUDE        1      28  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Land.gms
+     7      315 INCLUDE        1      29  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Other.gms
+     8      345 INCLUDE        1      30  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Regions.gms
+     9      873 INCLUDE        1      31  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Sets\Mappings.gms
+    10      974 INCLUDE        1      43  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Core\Parameters.gms
+    11     1078 INCLUDE        1      44  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Core\DataLoad.gms
+    12     1079 GDXIN         11       1  .C:\00_MyGAMS\LUMEN_Thanasis\Data\DATA_ALL.gdx
+    13     1091 INCLUDE        1      45  .C:\00_MyGAMS\LUMEN_Thanasis\Code\Core\Model.gms
+    14     1428 STOP           1      49  C:\00_MyGAMS\LUMEN_Thanasis\Code\main.gms
+
+
+COMPILATION TIME     =        0.172 SECONDS     37 MB  43.2.0 859d62d5 WEX-WEI
+GAMS 43.2.0  859d62d5 May 4, 2023           WEX-WEI x86 64bit/MS Windows - 02/14/24 15:48:27 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+MODEL RUN
+
+**** REPORT FILE SUMMARY
+
+ puDummy C:\00_MyGAMS\LUMEN_Thanasis\Code\225a\myPuDummy.dat
+
+
+EXECUTION TIME       =        0.000 SECONDS     38 MB  43.2.0 859d62d5 WEX-WEI
+
+
+USER: MUD - 70 User License                          G230301|0002CV-GEN
+      Int Food Policy Research Institute, IFPRI, Computer ServiceDC2119
+
+
+**** FILE SUMMARY
+
+Input      C:\00_MyGAMS\LUMEN_Thanasis\Code\main.gms
+Output     C:\00_MyGAMS\LUMEN_Thanasis\Code\main.lst
