@@ -19,9 +19,9 @@
 
  q41_trade_glo(commodity)..
   sum((activity2commodity(activity_crop, commodity), fpu2),
-  v31_production(fpu2, activity_crop, commodity))
+  vm_production(fpu2, activity_crop, commodity))
   =g=
-  sum((ct, iso), p35_commodity_demand_agriculture(ct, iso, commodity))
+  sum((ct, iso), pm_commodity_demand_agriculture(ct, iso, commodity))
   ;
 
 *' The global excess demand of each tradable good `v41_excess_demad` equals to
@@ -31,7 +31,7 @@
                         v41_excess_dem(iso, commodity) 
                         =g=
                         sum(iso, 
-                            sum(ct, p35_commodity_demand_agriculture(ct, iso, commodity))
+                            sum(ct, pm_commodity_demand_agriculture(ct, iso, commodity))
                             *
                             (1 - sum(ct, f41_selfsuff(ct, iso, commodity)))$(sum(ct, f41_selfsuff(ct, iso, commodity)) < 1)
                             )
@@ -68,20 +68,20 @@ q41_costs_margins(iso,commodity)..
 *' Transportation costs
 
 q41_cost_transport(iso,commodity) ..
-                            vm_cost_tr_cities(iso,commodity) 
+                            v41_cost_tr_cities(iso,commodity) 
                             =e= 
                             sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
-                            v31_production(fpu2, activity_crop, commodity)
+                            vm_production(fpu2, activity_crop, commodity)
                             *
                             f41_city_time(fpu2, "median"))
                             * 
                             f41_transport_costs(commodity);
 
 q41_cost_transport_port(iso,commodity) ..
-                            vm_cost_tr_cities(iso,commodity) 
+                            v41_cost_tr_cities(iso,commodity) 
                             =e= 
                             sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso, fpu2)),
-                            v31_production(fpu2, activity_crop, commodity) 
+                            vm_production(fpu2, activity_crop, commodity) 
                             * 
                             f41_port_time(fpu2,"median"))
                             * 
@@ -89,11 +89,11 @@ q41_cost_transport_port(iso,commodity) ..
 
 *' regional trade values are the sum of transport margin and tariff costs
 q41_cost_trade_iso(iso,commodity)..
-                                vm_cost_trade_iso(iso,commodity) 
+                                v41_cost_trade_iso(iso,commodity) 
                                 =g=
                                 v41_cost_tariff_iso(iso,commodity) 
                                 + 
                                 v41_cost_margin_iso(iso,commodity)
                                 +
-                                vm_cost_tr_cities(iso,commodity)
+                                v41_cost_tr_cities(iso,commodity)
                                 ;

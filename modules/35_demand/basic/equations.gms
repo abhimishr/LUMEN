@@ -8,9 +8,9 @@
 
 q35_commodity_demand(iso2, commodity) ..
                                         sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso2, fpu2)),
-                                        v31_production(fpu2, activity_crop, commodity))
+                                        vm_production(fpu2, activity_crop, commodity))
                                         +
                                         vm_commodity_production_free(iso2, commodity)
                                         =e=
-                                        sum(ct, p35_commodity_demand_agriculture(ct, iso2, commodity))
+                                        sum(ct, pm_commodity_demand_agriculture(ct, iso2, commodity))
                                         ;

@@ -6,10 +6,10 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-table luh_init(fpu,land_class) Initial LUH Area (000 ha)
+table f10_luh_init(fpu,land_class) Initial LUH Area (000 ha)
 $ondelim
 $include "./modules/10_land/input/luh_init.cs3"
 $offdelim
 ;
 
-luh_init(fpu,land_class) = round(luh_init(fpu,land_class), 4);
+f10_luh_init(fpu,land_class) = round(f10_luh_init(fpu,land_class), 4);

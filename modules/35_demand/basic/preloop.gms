@@ -22,4 +22,4 @@ loop(t_all$(t_all.val > 2005 and t_all.val <= 2050),
                                                         ;
 ); 
 
-p35_commodity_demand_agriculture(t_all, iso, commodity)$(sum(activity_crop, f31_IO_combined(iso, activity_crop, commodity))) = p35_commodity_demand(t_all, iso, commodity);
+pm_commodity_demand_agriculture(t_all, iso, commodity)$(sum(activity_crop, fm_io_combined(iso, activity_crop, commodity))) = p35_commodity_demand(t_all, iso, commodity);

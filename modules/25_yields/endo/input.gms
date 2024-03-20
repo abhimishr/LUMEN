@@ -6,11 +6,11 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-parameter fm_crop_yield(fpu, activity, irr) Parameter for yield (t per ha)
+parameter f25_crop_yield(fpu, activity, irr) Parameter for yield (t per ha)
 /
 $ondelim
 $include "./modules/25_yields/input/yld00.cs4"
 $offdelim
 /
 ;
-fm_crop_yield(fpu, activity, irr) = round(fm_crop_yield(fpu, activity, irr) ,3);
+f25_crop_yield(fpu, activity, irr) = round(f25_crop_yield(fpu, activity, irr) ,3);

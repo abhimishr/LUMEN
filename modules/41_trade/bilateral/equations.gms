@@ -12,7 +12,7 @@
 q41_trade_glo(commodity)..
   sum(iso2, vm_commodity_production(iso2, commodity) + v41_trade_supply(iso2, commodity))
   =g=
-  sum((ct, iso2), p35_commodity_demand_agriculture(ct, iso2, commodity))
+  sum((ct, iso2), pm_commodity_demand_agriculture(ct, iso2, commodity))
   ;
 
 $ontext
@@ -29,7 +29,7 @@ q41_global_trade(iso2, commodity)$[sum(ct, f41_selfsuff(ct, iso2, commodity)) < 
     ;
 
 q41_trade_cost(iso2, commodity)..
-    v41_trade_cost(iso2, commodity)
+    vm_trade_cost(iso2, commodity)
     =e=
     v41_trade_supply(iso2, commodity) * sum(fpu2iso3(iso2, fpu2), f41_city_time(fpu2,"median"))
     ;
@@ -67,7 +67,7 @@ $offtext
 *' Trade cost
 
 q41_trade_cost(iso2, c_trade)..
-    v41_trade_cost(iso2, c_trade)
+    vm_trade_cost(iso2, c_trade)
     =e=
     v41_trade_supply(iso2, c_trade) * sum(fpu2iso3(iso2, fpu2), f41_city_time(fpu2,"median"))
     ;

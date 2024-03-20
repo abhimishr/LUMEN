@@ -31,5 +31,5 @@ q89_cost_iso(iso2) ..
                     =e=
                     sum(commodity, vm_commodity_production_free(iso2, commodity) * 1e5)
                     +
-                    sum(commodity, v41_trade_cost(iso2, commodity))
+                    sum(commodity, vm_trade_cost(iso2, commodity))
                     ;

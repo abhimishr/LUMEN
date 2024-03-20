@@ -7,7 +7,7 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 loop(t_all,
-p25_yields_lag(fpu, activity_crop, irr_agr)$[t_all.val <= 2015] = fm_crop_yield(fpu, activity_crop, irr_agr);
+p25_yields_lag(fpu, activity_crop, irr_agr)$[t_all.val <= 2015] = f25_crop_yield(fpu, activity_crop, irr_agr);
 );
 
 * Dummy costs

@@ -6,7 +6,7 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-pm_crop_area(fpu, activity_crop, irr_agr) = vm_crop_area.l(fpu, activity_crop, irr_agr);
+p29_crop_yield(fpu, activity_crop, irr_agr) = vm_crop_area.l(fpu, activity_crop, irr_agr);
 
 *########### Begin R section ###########
 ov_crop_area(t, fpu, activity_crop, irr, "marginal")      = vm_crop_area.m(fpu, activity_crop, irr);

@@ -18,11 +18,11 @@ p31_iomat_fpu(fpu, activity, commodity)                 Dummy par (1)
 ;
 
 positive variables
-vm_crop_production(fpu, activity_crop)                      Crop production area (000 tDM)
+v31_crop_production(fpu, activity_crop)                      Crop production area (000 tDM)
 vm_commodity_production(iso, commodity)                    Commodity production (000 tDM)
 vm_crop_production_cost(fpu, activity_crop)                 Crop production cost (000 USD)
 vm_commodity_production_free(iso, commodity)               Commodity production from heaven free variable (000 tDM)
-v31_production(fpu, activity_crop, commodity)               Commodity production from activities (000 tDM)
+vm_production(fpu, activity_crop, commodity)               Commodity production from activities (000 tDM)
 ;
 
 equations

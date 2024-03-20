@@ -6,7 +6,7 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-p31_iomat_fpu(fpu, activity, commodity) = sum(fpu2iso3(iso, fpu), f31_IO_combined(iso, activity, commodity));
+p31_iomat_fpu(fpu, activity, commodity) = sum(fpu2iso3(iso, fpu), fm_io_combined(iso, activity, commodity));
 p31_iomat_fpu(fpu, activity, commodity) = 1$(p31_iomat_fpu(fpu, activity, commodity));
 
 p31_crop_production_cost(fpu, activity_crop) = 1;

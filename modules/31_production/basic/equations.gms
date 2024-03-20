@@ -9,11 +9,11 @@
 q31_crop_production_cost(fpu2, activity_crop) ..
                     vm_crop_production_cost(fpu2, activity_crop)
                     =e=
-                    vm_crop_production(fpu2, activity_crop) * p31_crop_production_cost(fpu2, activity_crop) 
+                    v31_crop_production(fpu2, activity_crop) * p31_crop_production_cost(fpu2, activity_crop) 
                     ;
 
 q31_crop_production(fpu2, activity_crop) ..
-                    vm_crop_production(fpu2, activity_crop)
+                    v31_crop_production(fpu2, activity_crop)
                     =e=
                     sum(irr_agr, 
                         vm_crop_yield(fpu2, activity_crop, irr_agr) 
@@ -25,16 +25,16 @@ q31_crop_production(fpu2, activity_crop) ..
                     ;
 
 q31_production(fpu2, activity_crop, commodity)$(p31_iomat_fpu(fpu2, activity_crop, commodity)) ..
-                    v31_production(fpu2, activity_crop, commodity)
+                    vm_production(fpu2, activity_crop, commodity)
                     =e=
-                    vm_crop_production(fpu2, activity_crop)
+                    v31_crop_production(fpu2, activity_crop)
                     / 
-                    sum(fpu2iso3(iso2, fpu2), f31_IO_combined(iso2, activity_crop, commodity))
+                    sum(fpu2iso3(iso2, fpu2), fm_io_combined(iso2, activity_crop, commodity))
                     ;
 
 q31_commodity_production(iso2, commodity) ..
                                         vm_commodity_production(iso2, commodity)
                                         =e=
                                         sum((activity2commodity(activity_crop, commodity), fpu2iso3(iso2, fpu2)),
-                                        v31_production(fpu2, activity_crop, commodity))
+                                        vm_production(fpu2, activity_crop, commodity))
                                         ;

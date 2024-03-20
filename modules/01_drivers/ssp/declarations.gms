@@ -7,6 +7,6 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 parameter
-pm_pop(t_all, iso, hh)          Population by household (million)
-pm_gdp(t_all, iso, hh)          GDP by household (billion USD)
+p01_pop(t_all, iso, hh)          Population by household (million)
+p01_gdp(t_all, iso, hh)          GDP by household (billion USD)
 ;

@@ -8,28 +8,28 @@
 
 *########### Begin R section ###########
 ov41_global_trade_pool(t, iso, commodity, "marginal")      = v41_global_trade_pool.m(iso, commodity);
-ov41_trade_cost(t, iso, commodity, "marginal")             = v41_trade_cost.m(iso, commodity);
+ov41_trade_cost(t, iso, commodity, "marginal")             = vm_trade_cost.m(iso, commodity);
 ov41_trade_supply(t, iso, commodity, "marginal")           = v41_trade_supply.m(iso, commodity);
 oq41_trade_glo(t, commodity, "marginal")                   = q41_trade_glo.m(commodity);
 oq41_global_trade_pool(t, iso, commodity, "marginal")      = q41_global_trade_pool.m(iso, commodity);
 oq41_trade_cost(t, iso, commodity, "marginal")             = q41_trade_cost.m(iso, commodity);
 oq41_global_trade(t, iso, commodity, "marginal")           = q41_global_trade.m(iso, commodity);
 ov41_global_trade_pool(t, iso, commodity, "level")         = v41_global_trade_pool.l(iso, commodity);
-ov41_trade_cost(t, iso, commodity, "level")                = v41_trade_cost.l(iso, commodity);
+ov41_trade_cost(t, iso, commodity, "level")                = vm_trade_cost.l(iso, commodity);
 ov41_trade_supply(t, iso, commodity, "level")              = v41_trade_supply.l(iso, commodity);
 oq41_trade_glo(t, commodity, "level")                      = q41_trade_glo.l(commodity);
 oq41_global_trade_pool(t, iso, commodity, "level")         = q41_global_trade_pool.l(iso, commodity);
 oq41_trade_cost(t, iso, commodity, "level")                = q41_trade_cost.l(iso, commodity);
 oq41_global_trade(t, iso, commodity, "level")              = q41_global_trade.l(iso, commodity);
 ov41_global_trade_pool(t, iso, commodity, "upper")         = v41_global_trade_pool.up(iso, commodity);
-ov41_trade_cost(t, iso, commodity, "upper")                = v41_trade_cost.up(iso, commodity);
+ov41_trade_cost(t, iso, commodity, "upper")                = vm_trade_cost.up(iso, commodity);
 ov41_trade_supply(t, iso, commodity, "upper")              = v41_trade_supply.up(iso, commodity);
 oq41_trade_glo(t, commodity, "upper")                      = q41_trade_glo.up(commodity);
 oq41_global_trade_pool(t, iso, commodity, "upper")         = q41_global_trade_pool.up(iso, commodity);
 oq41_trade_cost(t, iso, commodity, "upper")                = q41_trade_cost.up(iso, commodity);
 oq41_global_trade(t, iso, commodity, "upper")              = q41_global_trade.up(iso, commodity);
 ov41_global_trade_pool(t, iso, commodity, "lower")         = v41_global_trade_pool.lo(iso, commodity);
-ov41_trade_cost(t, iso, commodity, "lower")                = v41_trade_cost.lo(iso, commodity);
+ov41_trade_cost(t, iso, commodity, "lower")                = vm_trade_cost.lo(iso, commodity);
 ov41_trade_supply(t, iso, commodity, "lower")              = v41_trade_supply.lo(iso, commodity);
 oq41_trade_glo(t, commodity, "lower")                      = q41_trade_glo.lo(commodity);
 oq41_global_trade_pool(t, iso, commodity, "lower")         = q41_global_trade_pool.lo(iso, commodity);

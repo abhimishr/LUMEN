@@ -7,7 +7,7 @@
 *** |  Contact: A.Mishra@cgiar.org
 
 * Initialize Yields lower bound
-vm_crop_yield.lo(fpu, activity_crop, irr_agr)        = fm_crop_yield(fpu, activity_crop, irr_agr);
+vm_crop_yield.lo(fpu, activity_crop, irr_agr)        = f25_crop_yield(fpu, activity_crop, irr_agr);
 
 * Initiate intensification
 v25_productivity_growth.l(fpu, activity_crop, irr_agr) = 1;

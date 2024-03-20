@@ -13,7 +13,7 @@ i41_global_exports(t_all, commodity, reporter)       Global exports from FAO foo
 
 positive variables
 v41_global_trade_pool(iso, commodity)   Global trade pool from exporting countries (000 tDM)
-v41_trade_cost(iso, commodity)          Cost of trade to nearest city (000 USD)
+vm_trade_cost(iso, commodity)          Cost of trade to nearest city (000 USD)
 v41_trade_supply(iso, commodity)        Global trade pool in self sufficiency pool (000 tDM)
 ;
 

@@ -6,7 +6,7 @@
 *** |  version 1.0 (see LICENSE file).
 *** |  Contact: A.Mishra@cgiar.org
 
-parameter fm_gdp_household_base(iso, hh)                 base year household GDP (billion USD)
+parameter f01_gdp_household_base(iso, hh)                 base year household GDP (billion USD)
 /
 $ondelim
 $include "./modules/01_drivers/input/gdp_household.cs4"
@@ -20,7 +20,7 @@ $include "./modules/01_drivers/input/growth_gdp_household.cs3"
 $offdelim
 ;
 
-parameter fm_pop_household_base(iso, hh)                 Base year household population (million)
+parameter f01_pop_household_base(iso, hh)                 Base year household population (million)
 /
 $ondelim
 $include "./modules/01_drivers/input/pop_household.cs4"
@@ -35,7 +35,7 @@ $offdelim
 ;
 
 * Some rounding
-fm_gdp_household_base(iso, hh)          = round(fm_gdp_household_base(iso, hh)          , 3);
+f01_gdp_household_base(iso, hh)          = round(f01_gdp_household_base(iso, hh)          , 3);
 fm_growth_gdp_household(t_all, iso, hh) = round(fm_growth_gdp_household(t_all, iso, hh) , 3);
-fm_pop_household_base(iso, hh)          = round(fm_pop_household_base(iso, hh)          , 3);
+f01_pop_household_base(iso, hh)          = round(f01_pop_household_base(iso, hh)          , 3);
 fm_growth_pop_household(t_all, iso, hh) = round(fm_growth_pop_household(t_all, iso, hh) , 3);

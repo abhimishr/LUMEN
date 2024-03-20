@@ -8,7 +8,7 @@
 
 parameter
 p35_commodity_demand(t_all, iso, commodity)                 Commodity demand (000 tDM)
-p35_commodity_demand_agriculture(t_all, iso, commodity)     Commodity demand from agriculural commodities (000 tDM)
+pm_commodity_demand_agriculture(t_all, iso, commodity)     Commodity demand from agriculural commodities (000 tDM)
 p35_demand_change(t_all, iso, commodity, hh)                Income change (000 USD)
 ;
 

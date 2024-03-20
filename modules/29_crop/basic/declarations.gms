@@ -9,7 +9,7 @@
 parameters
 p29_crop_area_agg(fpu)                  Aggregated area for crops (000 ha)
 p29_initial_crop(fpu, activity, irr)    Initial distribution of crop (1)
-pm_crop_area(fpu, activity_crop, irr)   Agricultural production area from previous year (000 ha)
+p29_crop_yield(fpu, activity_crop, irr)   Agricultural production area from previous year (000 ha)
 ;
 
 positive variables

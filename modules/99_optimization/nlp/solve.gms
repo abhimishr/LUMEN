@@ -10,6 +10,8 @@ $ifthen "%c99_solver%" == "conopt3"
   option nlp        = conopt ;
 $elseif "%c99_solver%" == "conopt4"
   option nlp        = conopt4;
+$elseif "%c99_solver%" == "minos"
+  option nlp        = minos;
 $else
   abort "c99_solver setting not supported in nlp realization!";
 $endif
